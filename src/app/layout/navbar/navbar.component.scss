@@ -1,3 +1,24 @@
 .Navbar {
+    border: 1px solid green;
 
-};
+    padding: 0.5rem 0;
+
+    & .CONTAINER {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    & .nav {
+        border: 1px solid blue;
+        display: flex;
+        gap: 1rem;
+
+        &__link {
+            &.activated {
+                color: rebeccapurple;
+                font-weight: bold;
+            }
+        }
+    }
+}
