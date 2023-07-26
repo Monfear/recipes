@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Roboto:wght@400;500;700&display=swap');
 
+$mq-xlarge: 1800px;
+$mq-large: 1440px;
+$mq-big: 1024px;
+$mq-medium: 768px;
+$mq-small: 640px;
+
+@media screen and (max-height: $mq-small) {}
+@media screen and (orientation: landscape) and (max-height: $mq-small) {}
+@media screen and (min-width: $mq-medium) {}
+@media screen and (min-width: $mq-big) {}
+@media screen and (min-width: $mq-large) {}
+@media screen and (min-width: $mq-xlarge) {}
+
 *,
 *::before,
 *::after {
@@ -10,4 +23,34 @@
 
 html {
     font-family: Montserrat, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+picture {
+    display: block;
+}
+
+.CONTAINER {
+    margin: 0 auto;
+
+    max-width: 95%;
+
+    @media (min-width: $mq-big) {
+        max-width: 1000px;
+    }
+
+    @media (min-width: $mq-large) {
+        max-width: 1400px;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.mask {
+    visibility: hidden;
 }
