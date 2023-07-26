@@ -1,0 +1,26 @@
+$heading-xlarge: 4rem;
+$heading-large: 3.6rem;
+$heading-big: 2.7rem;
+$heading-medium: 2.1rem;
+$heading-small: 1.5rem;
+
+$text-xlarge: 1.4rem;
+$text-large: 1.2rem;
+$text-big: 1.1rem;
+$text-medium: 1rem;
+$text-small: 0.8rem;
+
+$mq-xlarge: 1800px;
+$mq-large: 1440px;
+$mq-big: 1024px;
+$mq-medium: 768px;
+$mq-small: 640px;
+
+@media screen and (max-height: $mq-small) {}
+@media screen and (orientation: landscape) and (max-height: $mq-small) {}
+@media screen and (min-width: $mq-medium) {}
+@media screen and (min-width: $mq-big) {}
+@media screen and (min-width: $mq-large) {}
+@media screen and (min-width: $mq-xlarge) {}
+
+$break: 1rem;
