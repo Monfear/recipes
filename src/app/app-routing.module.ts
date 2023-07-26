@@ -3,15 +3,20 @@ import { RouterModule, Route } from "@angular/router";
 
 import { HomeComponent } from "./views/home/home.components";
 import { NotFoundComponent } from "./views/not-found/not-found.component";
+import { RecipesComponent } from "./views/recipes/recipes.component";
 
 const appRoutes: Route[] = [
     {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+    },
+    {
+        path: 'recipes',
+        component: RecipesComponent,
     },
     {
         path: '**',
-        component: NotFoundComponent
+        component: NotFoundComponent,
     }
 ];
 
@@ -20,4 +25,4 @@ const appRoutes: Route[] = [
     exports: [RouterModule]
 })
 
-export class AppRoutingModule {};
+export class AppRoutingModule { };
