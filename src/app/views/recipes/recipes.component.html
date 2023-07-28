@@ -1,5 +1,13 @@
 <section class="Recipes">
     <div class="CONTAINER">
         <h1>recipes</h1>
+
+        <button (click)="firebaseService.addData()">add recipe</button>
+
+        <ng-container *ngFor="let item of this.recipes">
+            <p class="item" (click)="removeRecipe(item[0])">{{ item | json }}</p>
+        </ng-container>
+
+        <p *ngIf="this.recipes.length === 0">No recipes in database</p>
     </div>
 </section>

@@ -5,11 +5,14 @@ import { InterfaceModule } from "./modules/interface/interface.module";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from "./layout/navbar/navbar.component";
+import { RecipesComponent } from "./views/recipes/recipes.component";
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+
+        RecipesComponent
     ],
 
     imports: [

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from "src/app/services/firebase.service";
+import { DataSnapshot, DatabaseReference, onValue, ref } from "firebase/database";
+import { IRecipie } from "src/app/types/Recipe.interface";
 
 @Component({
     selector: 'app-recipes',
@@ -6,8 +9,52 @@ import { Component } from '@angular/core';
     styleUrls: ['./recipes.component.scss']
 })
 
-export class RecipesComponent {
-    constructor() {
-        // pass
+export class RecipesComponent implements OnInit {
+    public recipes: [string, IRecipie][] = [];
+
+    constructor(public firebaseService: FirebaseService) {
+        this.listenUpdateData();
+    };
+
+    ngOnInit(): void {
+        // this.firebaseService.getRecipes()
+        //     .then((value: any) => {
+        //         this.recipes = value;
+        //     }).catch((error: any) => {
+        //         if (error instanceof Error) {
+        //             console.warn(error.message);
+        //         };
+        //     });
+    };
+
+    removeRecipe(id: string) {
+        this.firebaseService.removeData(id).then((_value: void) => {
+            console.log('remove');
+        });
+    };
+
+    listenUpdateData() {
+        const reference: DatabaseReference = ref(this.firebaseService.db, this.firebaseService.collection);
+
+        onValue(reference, (snapshot: DataSnapshot) => {
+            console.log('onValue');
+
+            try {
+                const value: Object | null = snapshot.val();
+
+                if (!value && !snapshot.exists()) {
+                    this.recipes = [];
+                    throw new Error('[-] no data to fetch');
+                };
+
+                const data: [string, IRecipie][] = Object.entries(snapshot.val());
+
+                this.recipes = data;
+            } catch (error: any) {
+                if (error instanceof Error) {
+                    console.warn(error.message);
+                };
+            };
+        });
     };
 };
