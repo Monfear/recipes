@@ -5,8 +5,7 @@
         <button (click)="addRecipe()">add recipe</button>
 
         <ng-container *ngFor="let item of this.recipes">
-            <!-- <p class="item" (click)="removeRecipe(item[0])">{{ item | json }}</p> -->
-            <app-recipe [id]="item[0]" [data]="item[1]"></app-recipe>
+            <app-recipe-card [id]="item[0]" [data]="item[1]"></app-recipe-card>
         </ng-container>
 
         <p *ngIf="this.recipes.length === 0">No recipes in database</p>

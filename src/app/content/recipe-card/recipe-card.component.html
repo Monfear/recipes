@@ -1,0 +1,9 @@
+<article class="Recipe-card">
+    <div class="front" [ngStyle]="{'background-image': 'url('+ data.imgUrl +')'}">
+        <p>{{ data.name }}</p>
+    </div>
+
+    <div class="back">
+        <p>{{ data.description }}</p>
+    </div>
+</article>

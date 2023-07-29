@@ -56,6 +56,10 @@ export class FirebaseService {
 
         const data: IRecipie = {
             name: 'sushi',
+            description: `
+                Potrawa japońska złożona z gotowanego ryżu zaprawionego octem ryżowym (su) oraz różnych dodatków w postaci,
+                przeważnie surowych: owoców morza, wodorostów nori, kawałków ryb, warzyw, grzybów
+            `,
             ingredients: [
                 '3 listki nori',
                 '250 g ryżu do sushi',

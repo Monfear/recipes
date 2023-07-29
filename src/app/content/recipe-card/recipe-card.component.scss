@@ -1,0 +1,42 @@
+.Recipe-card {
+    border: 1px solid black;
+
+    position: relative;
+
+    width: 250px;
+    height: 300px;
+
+    perspective: 1000px;
+
+    & .front, & .back {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        transition: all 1s;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+    }
+
+    & .front {
+        background-color: aqua;
+        background-size: cover;
+        background-position: center;
+    }
+
+    & .back {
+        background-color: chartreuse;
+        transform: rotateY(180deg);
+    }
+
+    &:hover .front{
+        transform: rotateY(180deg);
+    }
+
+    &:hover .back{
+        transform: rotateY(0);
+    }
+}
