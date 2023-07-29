@@ -1,3 +1,23 @@
 .Recipe {
     border: 1px solid blue;
+
+    & .heading {
+
+    }
+
+    & .ingredients {
+        &__ingredient {
+
+        }
+    }
+
+    & .preparation {
+
+    }
+
+    & .picture {
+        &__img {
+            width: 100%;
+        }
+    }
 }

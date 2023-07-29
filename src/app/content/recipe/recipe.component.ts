@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IRecipie } from "src/app/types/Recipe.interface";
 
 @Component({
     selector: 'app-recipe',
@@ -7,7 +8,9 @@ import { Component } from '@angular/core';
 })
 
 export class RecipeComponent {
+    @Input() id: string;
+    @Input() data: IRecipie;
+
     constructor() {
-        // pass
     };
 };

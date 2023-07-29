@@ -2,10 +2,11 @@
     <div class="CONTAINER">
         <h1>recipes</h1>
 
-        <button (click)="firebaseService.addData()">add recipe</button>
+        <button (click)="addRecipe()">add recipe</button>
 
         <ng-container *ngFor="let item of this.recipes">
-            <p class="item" (click)="removeRecipe(item[0])">{{ item | json }}</p>
+            <!-- <p class="item" (click)="removeRecipe(item[0])">{{ item | json }}</p> -->
+            <app-recipe [id]="item[0]" [data]="item[1]"></app-recipe>
         </ng-container>
 
         <p *ngIf="this.recipes.length === 0">No recipes in database</p>

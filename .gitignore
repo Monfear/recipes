@@ -42,7 +42,7 @@ testem.log
 Thumbs.db
 
 # config
-src/config
+/src/config
 
 # env
-src/env
+/src/env

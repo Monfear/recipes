@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FirebaseApp, initializeApp } from "firebase/app";
-import { Database, DatabaseReference, DataSnapshot, getDatabase, ref, push, get, remove} from 'firebase/database';
+import { Database, DatabaseReference, getDatabase, ref, push, remove} from 'firebase/database';
 import { firebaseConfig } from "src/config/firebase.config";
 import { IRecipie } from "../types/Recipe.interface";
 
@@ -19,37 +19,37 @@ export class FirebaseService {
         this.db = getDatabase();
     };
 
-    public async getData(): Promise<any> {
-        let data: [string, IRecipie][] = [];
+    // public async getData(): Promise<any> {
+    //     let data: [string, IRecipie][] = [];
 
-        try {
-            const reference: DatabaseReference = ref(this.db, this.collection);
-            const dataSnapshot: DataSnapshot = await get(reference);
+    //     try {
+    //         const reference: DatabaseReference = ref(this.db, this.collection);
+    //         const dataSnapshot: DataSnapshot = await get(reference);
 
-            const value: Object = dataSnapshot.val();
+    //         const value: Object = dataSnapshot.val();
 
-            if (!value) {
-                throw new Error('[-] no data to fetch');
-            };
+    //         if (!value) {
+    //             throw new Error('[-] no data to fetch');
+    //         };
 
-            data = Object.entries(dataSnapshot.val());
-        } catch (error) {
-            if (error instanceof Error) {
-                console.warn(error.message);
-            };
-        };
+    //         data = Object.entries(dataSnapshot.val());
+    //     } catch (error) {
+    //         if (error instanceof Error) {
+    //             console.warn(error.message);
+    //         };
+    //     };
 
-        return data;
+    //     return data;
 
-        // this.firebaseService.getRecipes()
-        //     .then((data: [string, IRecipie][]) => {
-        //         this.recipes = data;
-        //     }).catch((error: any) => {
-        //         if (error instanceof Error) {
-        //             console.warn(error.message);
-        //         };
-        //     });
-    };
+    //     // this.firebaseService.getRecipes()
+    //     //     .then((data: [string, IRecipie][]) => {
+    //     //         this.recipes = data;
+    //     //     }).catch((error: any) => {
+    //     //         if (error instanceof Error) {
+    //     //             console.warn(error.message);
+    //     //         };
+    //     //     });
+    // };
 
     public async addData(): Promise<void> {
         const reference: DatabaseReference = ref(this.db, this.collection);
@@ -94,8 +94,6 @@ export class FirebaseService {
     public async removeData(id: string): Promise<void> {
         const reference: DatabaseReference = ref(this.db, this.collection + '/' + id);
 
-        const result: void = await remove(reference);
-
-        return result;
+        await remove(reference);
     };
 };

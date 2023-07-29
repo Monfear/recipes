@@ -6,13 +6,19 @@ import { InterfaceModule } from "./modules/interface/interface.module";
 import { AppComponent } from './app.component';
 import { NavbarComponent } from "./layout/navbar/navbar.component";
 import { RecipesComponent } from "./views/recipes/recipes.component";
+import { RecipeComponent } from "./content/recipe/recipe.component";
+import { HomeComponent } from "./views/home/home.components";
+import { NotFoundComponent } from "./views/not-found/not-found.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
 
-        RecipesComponent
+        HomeComponent,
+        NotFoundComponent,
+        RecipesComponent,
+        RecipeComponent
     ],
 
     imports: [
