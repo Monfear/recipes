@@ -2,6 +2,8 @@
     <div class="CONTAINER">
         <interface-heading>recipes</interface-heading>
 
+        <interface-spinner></interface-spinner>
+
         <div class="cards">
             <ng-container *ngFor="let item of this.recipes">
                 <app-recipe-card [id]="item[0]" [data]="item[1]"></app-recipe-card>

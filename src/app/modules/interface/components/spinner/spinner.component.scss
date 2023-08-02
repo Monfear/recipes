@@ -1,0 +1,58 @@
+.Spinner {
+    width: 100px;
+    height: 100px;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 10px solid transparent;
+        border-radius: 50%;
+    }
+
+    &::before {
+        border-top-color: black;
+        animation: topLine 1.2s linear infinite;
+    }
+
+    &::after {
+        border-bottom-color: black;
+        animation: bottomLine 1.2s linear infinite;
+    }
+}
+
+@keyframes topLine {
+    0% {
+        transform: rotateZ(0deg);
+        border-width: 10px;
+    }
+
+    50% {
+        transform: rotateZ(180deg);
+        border-width: 1px;
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+        border-width: 10px;
+    }
+}
+
+@keyframes bottomLine {
+    0% {
+        transform: rotateZ(0deg);
+        border-width: 1px;
+    }
+
+    50% {
+        transform: rotateZ(180deg);
+        border-width: 10px;
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+        border-width: 1px;
+    }
+}
