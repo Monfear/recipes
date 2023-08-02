@@ -2,7 +2,7 @@
     <div class="CONTAINER">
         <interface-heading>recipes</interface-heading>
 
-        <interface-spinner></interface-spinner>
+        <interface-spinner *ngIf="firebaseService.ifLoadingBehaviorSubject | async"></interface-spinner>
 
         <div class="cards">
             <ng-container *ngFor="let item of this.recipes">
@@ -10,6 +10,6 @@
             </ng-container>
         </div>
 
-        <p class="info" *ngIf="this.recipes.length === 0">No recipes in database</p>
+        <p class="info" *ngIf="(this.recipes.length === 0) && !(this.firebaseService.ifLoadingBehaviorSubject | async)">No recipes in database</p>
     </div>
 </section>

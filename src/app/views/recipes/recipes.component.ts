@@ -11,13 +11,14 @@ import { IRecipie } from "src/app/types/Recipe.interface";
 
 export class RecipesComponent implements OnInit {
     public recipes: [string, IRecipie][] = [];
+    public ifLoading: boolean = false;
 
     constructor(public firebaseService: FirebaseService) {
         this.listenUpdateData();
     };
 
     ngOnInit(): void {
-        // pass
+        this.firebaseService.ifLoadingBehaviorSubject.next(true);
     };
 
     // removeRecipe(id: string): void {
@@ -47,6 +48,8 @@ export class RecipesComponent implements OnInit {
                 if (error instanceof Error) {
                     console.warn(error.message);
                 };
+            } finally {
+                this.firebaseService.ifLoadingBehaviorSubject.next(false);
             };
         });
     };

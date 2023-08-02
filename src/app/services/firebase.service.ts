@@ -3,6 +3,7 @@ import { FirebaseApp, initializeApp } from "firebase/app";
 import { Database, DatabaseReference, getDatabase, ref, push, remove} from 'firebase/database';
 import { firebaseConfig } from "src/config/firebase.config";
 import { IRecipie } from "../types/Recipe.interface";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -12,44 +13,14 @@ export class FirebaseService {
     public app: FirebaseApp;
     public db: Database;
 
+    public ifLoadingBehaviorSubject: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
     public collection: string = 'recipes';
 
     constructor() {
         this.app = initializeApp(firebaseConfig);
         this.db = getDatabase();
     };
-
-    // public async getData(): Promise<any> {
-    //     let data: [string, IRecipie][] = [];
-
-    //     try {
-    //         const reference: DatabaseReference = ref(this.db, this.collection);
-    //         const dataSnapshot: DataSnapshot = await get(reference);
-
-    //         const value: Object = dataSnapshot.val();
-
-    //         if (!value) {
-    //             throw new Error('[-] no data to fetch');
-    //         };
-
-    //         data = Object.entries(dataSnapshot.val());
-    //     } catch (error) {
-    //         if (error instanceof Error) {
-    //             console.warn(error.message);
-    //         };
-    //     };
-
-    //     return data;
-
-    //     // this.firebaseService.getRecipes()
-    //     //     .then((data: [string, IRecipie][]) => {
-    //     //         this.recipes = data;
-    //     //     }).catch((error: any) => {
-    //     //         if (error instanceof Error) {
-    //     //             console.warn(error.message);
-    //     //         };
-    //     //     });
-    // };
 
     public async addData(): Promise<void> {
         const reference: DatabaseReference = ref(this.db, this.collection);
