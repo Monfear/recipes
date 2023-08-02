@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+
 import { LogoComponent } from "./components/logo/logo.component";
+import { ButtonComponent } from "./components/button/button.component";
 
 @NgModule({
     imports: [
@@ -8,14 +10,18 @@ import { LogoComponent } from "./components/logo/logo.component";
     ],
 
     declarations: [
-        LogoComponent
+        LogoComponent,
+        ButtonComponent
     ],
 
     exports: [
-        LogoComponent
+        LogoComponent,
+        ButtonComponent
     ],
 })
 
 export class InterfaceModule {
-
+    constructor() {
+        // pass
+    };
 };

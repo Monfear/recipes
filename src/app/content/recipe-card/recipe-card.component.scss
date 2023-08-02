@@ -1,6 +1,4 @@
 .Recipe-card {
-    border: 1px solid black;
-
     position: relative;
 
     width: 250px;
@@ -14,22 +12,47 @@
         backface-visibility: hidden;
         transition: all 1s;
 
+        text-align: center;
+        color: white;
+    }
+
+    & .front {
+        background-size: cover;
+        background-position: center;
+
         display: flex;
         justify-content: center;
         align-items: center;
 
-        text-align: center;
-    }
+        &__heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
 
-    & .front {
-        background-color: aqua;
-        background-size: cover;
-        background-position: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 50px;
+        }
     }
 
     & .back {
-        background-color: chartreuse;
         transform: rotateY(180deg);
+        background-size: auto;
+        padding: 0 0.4rem;
+
+        &::after {
+            position: absolute;
+            content: '';
+
+            background-color: rgba(0, 0, 0, 0.5);
+            inset: 0;
+            z-index: -1;
+        }
+
+        & .text {
+            margin-top: 2rem;
+        }
     }
 
     &:hover .front{

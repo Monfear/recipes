@@ -1,9 +1,29 @@
 <article class="Recipe-card">
     <div class="front" [ngStyle]="{'background-image': 'url('+ data.imgUrl +')'}">
-        <p>{{ data.name }}</p>
+        <h1 class="front__heading">{{ data.name }}</h1>
+        <!-- <interface-button
+            [additionalStyles]="{
+                position: 'absolute',
+                bottom: '5%',
+                left: '50%',
+                transform: 'translateX(-50%)'
+            }"
+        >
+            show details
+        </interface-button> -->
     </div>
 
-    <div class="back">
-        <p>{{ data.description }}</p>
+    <div class="back" [ngStyle]="{'background-image': 'url('+ data.imgUrl +')'}">
+        <p class="text">{{ data.description }}</p>
+        <interface-button
+            [additionalStyles]="{
+                position: 'absolute',
+                bottom: '5%',
+                left: '50%',
+                transform: 'translateX(-50%)'
+            }"
+        >
+            show details
+        </interface-button>
     </div>
 </article>
