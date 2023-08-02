@@ -17,17 +17,14 @@ export class RecipesComponent implements OnInit {
     };
 
     ngOnInit(): void {
+        // pass
     };
 
-    addRecipe() {
-        this.firebaseService.addData();
-    };
-
-    removeRecipe(id: string): void {
-        this.firebaseService.removeData(id).then((_value: void) => {
-            console.log('remove');
-        });
-    };
+    // removeRecipe(id: string): void {
+    //     this.firebaseService.removeData(id).then((_value: void) => {
+    //         console.log('remove');
+    //     });
+    // };
 
     listenUpdateData() {
         const reference: DatabaseReference = ref(this.firebaseService.db, this.firebaseService.collection);

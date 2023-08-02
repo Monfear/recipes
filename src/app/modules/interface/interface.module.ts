@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 
 import { LogoComponent } from "./components/logo/logo.component";
 import { ButtonComponent } from "./components/button/button.component";
+import { HeadingComponent } from "./components/heading/heading.component";
 
 @NgModule({
     imports: [
@@ -11,12 +12,14 @@ import { ButtonComponent } from "./components/button/button.component";
 
     declarations: [
         LogoComponent,
-        ButtonComponent
+        ButtonComponent,
+        HeadingComponent,
     ],
 
     exports: [
         LogoComponent,
-        ButtonComponent
+        ButtonComponent,
+        HeadingComponent
     ],
 })
 
