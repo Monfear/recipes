@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FirebaseApp, initializeApp } from "firebase/app";
-import { Database, DatabaseReference, getDatabase, ref, push, remove} from 'firebase/database';
+import { Database, DatabaseReference, getDatabase, ref, push, remove, get, DataSnapshot } from 'firebase/database';
 import { firebaseConfig } from "src/config/firebase.config";
 import { IRecipie } from "../types/Recipe.interface";
 import { BehaviorSubject } from "rxjs";
@@ -13,7 +13,7 @@ export class FirebaseService {
     public app: FirebaseApp;
     public db: Database;
 
-    public ifLoadingBehaviorSubject: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    public ifLoadingBehaviorSubject: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
     public collection: string = 'recipes';
 
@@ -70,5 +70,28 @@ export class FirebaseService {
         const reference: DatabaseReference = ref(this.db, this.collection + '/' + id);
 
         await remove(reference);
+    };
+
+    public async getSingleData(id: string): Promise<IRecipie | undefined> {
+        let data: IRecipie | undefined;
+
+        try {
+            const reference: DatabaseReference = ref(this.db, this.collection + '/' + id);
+            const dataSnapshot: DataSnapshot = await get(reference);
+
+            const value: IRecipie = dataSnapshot.val();
+
+            if (!value) {
+                throw new Error('[-] no data to fetch');
+            };
+
+            data = value;
+        } catch (error) {
+            if (error instanceof Error) {
+                console.warn(error.message);
+            };
+        };
+
+        return data;
     };
 };

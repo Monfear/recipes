@@ -10,6 +10,8 @@ export class ButtonComponent {
     @Input() additionalClass: string;
     @Input() additionalStyles: Object;
 
+    @Input() clickHandler: Function;
+
     constructor() {
         // pass
     };

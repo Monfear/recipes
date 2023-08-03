@@ -1,7 +1,10 @@
 .Spinner {
     width: 100px;
     height: 100px;
+
     position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 
     &::before,
     &::after {

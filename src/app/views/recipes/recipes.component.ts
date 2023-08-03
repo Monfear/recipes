@@ -11,21 +11,15 @@ import { IRecipie } from "src/app/types/Recipe.interface";
 
 export class RecipesComponent implements OnInit {
     public recipes: [string, IRecipie][] = [];
-    public ifLoading: boolean = false;
+    // public ifLoading: boolean = false;
 
     constructor(public firebaseService: FirebaseService) {
         this.listenUpdateData();
     };
 
     ngOnInit(): void {
-        this.firebaseService.ifLoadingBehaviorSubject.next(true);
+        // pass
     };
-
-    // removeRecipe(id: string): void {
-    //     this.firebaseService.removeData(id).then((_value: void) => {
-    //         console.log('remove');
-    //     });
-    // };
 
     listenUpdateData() {
         const reference: DatabaseReference = ref(this.firebaseService.db, this.firebaseService.collection);

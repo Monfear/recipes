@@ -1,15 +1,15 @@
 <article class="Recipe">
-    <h1 class="heading">{{ data.name[0].toUpperCase() + data.name.slice(1) }}</h1>
+    <h1 class="heading">{{ recipe.name[0].toUpperCase() + recipe.name.slice(1) }}</h1>
 
     <div class="ingredients">
-        <ng-container *ngFor="let item of data.ingredients; let idx = index">
+        <ng-container *ngFor="let item of recipe.ingredients; let idx = index">
             <p class="ingredients__ingredient">{{ item }}</p>
         </ng-container>
     </div>
 
-    <p class="preparation">{{ data.preparation }}</p>
+    <p class="preparation">{{ recipe.preparation }}</p>
 
     <picture class="picture">
-        <img class="picture__img" [src]="data.imgUrl" alt="">
+        <img class="picture__img" [src]="recipe.imgUrl" alt="{{ recipe.name }}">
     </picture>
 </article>

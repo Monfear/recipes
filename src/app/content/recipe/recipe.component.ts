@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Data, Params, Router } from "@angular/router";
 import { IRecipie } from "src/app/types/Recipe.interface";
 
 @Component({
@@ -8,9 +9,23 @@ import { IRecipie } from "src/app/types/Recipe.interface";
 })
 
 export class RecipeComponent {
-    @Input() id: string;
-    @Input() data: IRecipie;
+    public id: string;
+    public recipe: IRecipie;
 
-    constructor() {
+    constructor(private route: ActivatedRoute, private router: Router) {
+        this.route.params.subscribe((params: Params): void => {
+            this.id = params['id'];
+        });
+
+        this.route.data.subscribe((data: Data) => {
+            const recipe: IRecipie | undefined = data['recipe']
+
+            if (!recipe) {
+                this.router.navigateByUrl('');
+                return
+            };
+
+            this.recipe = recipe;
+        });
     };
 };

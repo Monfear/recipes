@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { Router } from "@angular/router";
 import { IRecipie } from "src/app/types/Recipe.interface";
 
 @Component({
@@ -11,7 +12,13 @@ export class RecipeCardComponent {
     @Input() id: string;
     @Input() data: IRecipie;
 
-    constructor() {
+    constructor(public router: Router) {
         // pass
+    };
+
+    public navigateToDetails = (e: MouseEvent): void => {
+        console.log(e);
+
+        this.router.navigateByUrl(`recipes/${this.id}`)
     };
 };
