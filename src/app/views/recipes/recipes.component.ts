@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "src/app/services/firebase.service";
 import { DataSnapshot, DatabaseReference, onValue, ref } from "firebase/database";
 import { IRecipie } from "src/app/types/Recipe.interface";
+import { setViewTitle } from "src/app/functions/setViewTitle";
 
 @Component({
     selector: 'app-recipes',
@@ -11,14 +12,13 @@ import { IRecipie } from "src/app/types/Recipe.interface";
 
 export class RecipesComponent implements OnInit {
     public recipes: [string, IRecipie][] = [];
-    // public ifLoading: boolean = false;
 
     constructor(public firebaseService: FirebaseService) {
         this.listenUpdateData();
     };
 
     ngOnInit(): void {
-        // pass
+        setViewTitle('all');
     };
 
     listenUpdateData() {

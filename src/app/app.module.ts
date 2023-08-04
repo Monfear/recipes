@@ -6,7 +6,7 @@ import { InterfaceModule } from "./modules/interface/interface.module";
 import { AppComponent } from './app.component';
 import { NavbarComponent } from "./layout/navbar/navbar.component";
 import { RecipesComponent } from "./views/recipes/recipes.component";
-import { RecipeComponent } from "./content/recipe/recipe.component";
+import { RecipeComponent } from "./views/recipe/recipe.component";
 import { HomeComponent } from "./views/home/home.components";
 import { NotFoundComponent } from "./views/not-found/not-found.component";
 import { RecipeCardComponent } from "./content/recipe-card/recipe-card.component";

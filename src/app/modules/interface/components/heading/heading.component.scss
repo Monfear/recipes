@@ -1,5 +1,8 @@
+@use 'src/variables.scss' as *;
+
 .Heading {
     text-transform: capitalize;
     margin: 1rem 0;
     text-align: center;
+    font-size: $heading-medium;
 }

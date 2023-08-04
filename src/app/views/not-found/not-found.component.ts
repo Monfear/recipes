@@ -13,6 +13,6 @@ export class NotFoundComponent implements OnInit {
     };
 
     ngOnInit(): void {
-        setViewTitle('Not Found');
+        setViewTitle('not found');
     };
 };

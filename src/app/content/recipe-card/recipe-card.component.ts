@@ -17,8 +17,6 @@ export class RecipeCardComponent {
     };
 
     public navigateToDetails = (e: MouseEvent): void => {
-        console.log(e);
-
         this.router.navigateByUrl(`recipes/${this.id}`)
     };
 };

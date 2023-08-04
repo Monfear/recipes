@@ -1,0 +1,7 @@
+@use '/src/variables.scss' as *;
+
+.Subheading {
+    text-transform: capitalize;
+    font-size: $heading-small;
+    margin-bottom: 0.5rem;
+}
