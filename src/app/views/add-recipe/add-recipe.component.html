@@ -1,5 +1,17 @@
 <section class="Add-recipe">
     <div class="CONTAINER">
-        <h1>add recipe</h1>
+        <interface-heading>add recipe</interface-heading>
+
+        <form class="form" [formGroup]="formGroup" (ngSubmit)="submitForm($event)">
+            <ng-container *ngFor="let entry of this.formGroupEntries">
+                <interface-form-control
+                    [alias]="entry[0]"
+                    [control]="entry[1]"
+                >
+                </interface-form-control>
+            </ng-container>
+
+            <button type="submit">click</button>
+        </form>
     </div>
 </section>

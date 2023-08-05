@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from "./app-routing.module";
 import { InterfaceModule } from "./modules/interface/interface.module";
 
@@ -34,8 +35,9 @@ import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
     ],
 
     imports: [
-        BrowserModule,
         AppRoutingModule,
+        BrowserModule,
+        ReactiveFormsModule,
 
         InterfaceModule
     ],
