@@ -25,14 +25,14 @@ export class RecipesComponent implements OnInit {
         const reference: DatabaseReference = ref(this.firebaseService.db, this.firebaseService.collection);
 
         onValue(reference, (snapshot: DataSnapshot) => {
-            console.log('onValue');
+            console.log('[i]', 'onValue');
 
             try {
                 const value: Object | null = snapshot.val();
 
                 if (!value && !snapshot.exists()) {
                     this.recipes = [];
-                    throw new Error('[-] no data to fetch');
+                    throw new Error('[-] no data in database to convert into object');
                 };
 
                 const data: [string, IRecipie][] = Object.entries(snapshot.val());

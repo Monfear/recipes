@@ -24,6 +24,10 @@ const appRoutes: Route[] = [
         },
     },
     {
+        path: 'not-found',
+        component: NotFoundComponent,
+    },
+    {
         path: '**',
         component: NotFoundComponent,
     }

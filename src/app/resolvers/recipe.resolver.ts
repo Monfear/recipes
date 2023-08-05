@@ -12,8 +12,7 @@ export const recipeResolver: ResolveFn<IRecipie | undefined> =
 
         const firebaseService: FirebaseService = inject<FirebaseService>(FirebaseService);
 
-        const params: Params = route.params;
-        const { id } : Params = params;
+        const { id } : Params = route.params;
 
         const promise: Promise<IRecipie | undefined> = firebaseService.getSingleData(id);
 

@@ -1,12 +1,12 @@
 <section class="Recipe">
     <div class="CONTAINER">
 
-        <interface-heading>{{ recipe.name }}</interface-heading>
+        <interface-heading>{{ recipe?.name }}</interface-heading>
 
         <article class="ingredients">
             <interface-subheading>ingredients</interface-subheading>
 
-            <ng-container *ngFor="let item of recipe.ingredients; let idx = index">
+            <ng-container *ngFor="let item of recipe?.ingredients; let idx = index">
                 <p class="ingredients__ingredient">{{ item }}</p>
             </ng-container>
         </article>
@@ -14,11 +14,11 @@
         <article class="preparation">
             <interface-subheading>preparation</interface-subheading>
 
-            <p class="preparation__text">{{ recipe.preparation }}</p>
+            <p class="preparation__text">{{ recipe?.preparation }}</p>
         </article>
     </div>
 
     <picture class="picture">
-        <img class="picture__img" [src]="recipe.imgUrl" alt="{{ recipe.name }}">
+        <img class="picture__img" [src]="recipe?.imgUrl" alt="{{ recipe?.name }}">
     </picture>
 </section>

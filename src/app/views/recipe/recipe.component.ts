@@ -10,8 +10,8 @@ import { IRecipie } from "src/app/types/Recipe.interface";
 })
 
 export class RecipeComponent implements OnInit {
-    public id: string;
-    public recipe: IRecipie;
+    public id: string | null = null;
+    public recipe: IRecipie | null = null;
 
     constructor(private route: ActivatedRoute, private router: Router) {
         this.getParams();
@@ -19,7 +19,11 @@ export class RecipeComponent implements OnInit {
     };
 
     ngOnInit() {
-        setViewTitle(this.recipe.name);
+        if (this.recipe) {
+            setViewTitle(this.recipe.name);
+        } else {
+            setViewTitle('recipe');
+        };
     };
 
     public getParams(): void {
@@ -33,11 +37,11 @@ export class RecipeComponent implements OnInit {
             const recipe: IRecipie | undefined = data['recipe'];
 
             if (!recipe) {
-                this.router.navigateByUrl('');
+                this.router.navigateByUrl('not-found');
                 return
             };
 
             this.recipe = recipe;
         });
-    };
+    }
 };
