@@ -6,6 +6,7 @@ import { NotFoundComponent } from "./views/not-found/not-found.component";
 import { RecipesComponent } from "./views/recipes/recipes.component";
 import { RecipeComponent } from "./views/recipe/recipe.component";
 import { recipeResolver } from "./resolvers/recipe.resolver";
+import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
 
 const appRoutes: Route[] = [
     {
@@ -22,6 +23,10 @@ const appRoutes: Route[] = [
         resolve: {
             recipe: recipeResolver,
         },
+    },
+    {
+        path: 'add-recipe',
+        component: AddRecipeComponent,
     },
     {
         path: 'not-found',

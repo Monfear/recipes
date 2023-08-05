@@ -8,11 +8,13 @@ import { setViewTitle } from "src/app/functions/setViewTitle";
 })
 
 export class NotFoundComponent implements OnInit {
+    private title: string = 'not found';
+
     constructor() {
         // pass
     };
 
     ngOnInit(): void {
-        setViewTitle('not found');
+        setViewTitle(this.title);
     };
 };

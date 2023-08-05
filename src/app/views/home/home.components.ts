@@ -8,11 +8,13 @@ import { setViewTitle } from "src/app/functions/setViewTitle";
 })
 
 export class HomeComponent implements OnInit {
+    private title: string = 'home';
+
     constructor() {
 
     };
 
     ngOnInit(): void {
-        setViewTitle('home');
+        setViewTitle(this.title);
     };
 };

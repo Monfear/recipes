@@ -10,6 +10,8 @@ import { IRecipie } from "src/app/types/Recipe.interface";
 })
 
 export class RecipeComponent implements OnInit {
+    private title: string = 'recipe';
+
     public id: string | null = null;
     public recipe: IRecipie | null = null;
 
@@ -22,7 +24,7 @@ export class RecipeComponent implements OnInit {
         if (this.recipe) {
             setViewTitle(this.recipe.name);
         } else {
-            setViewTitle('recipe');
+            setViewTitle(this.title);
         };
     };
 

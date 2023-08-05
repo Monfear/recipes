@@ -11,20 +11,26 @@ import { HomeComponent } from "./views/home/home.components";
 import { NotFoundComponent } from "./views/not-found/not-found.component";
 import { RecipeCardComponent } from "./content/recipe-card/recipe-card.component";
 import { FooterComponent } from "./layout/footer/footer.component";
+import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
 
 @NgModule({
     declarations: [
+        // app
         AppComponent,
 
+        // views
+        HomeComponent,
+        NotFoundComponent,
+        RecipesComponent,
+        RecipeComponent,
+        AddRecipeComponent,
+
+        // layout
         NavbarComponent,
         FooterComponent,
 
-        HomeComponent,
-        NotFoundComponent,
-
-        RecipesComponent,
+        // content
         RecipeCardComponent,
-        RecipeComponent
     ],
 
     imports: [
@@ -41,4 +47,4 @@ import { FooterComponent } from "./layout/footer/footer.component";
     ],
 })
 
-export class AppModule {};
+export class AppModule { };

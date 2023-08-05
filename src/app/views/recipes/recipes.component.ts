@@ -11,6 +11,8 @@ import { setViewTitle } from "src/app/functions/setViewTitle";
 })
 
 export class RecipesComponent implements OnInit {
+    private title: string = 'all';
+
     public recipes: [string, IRecipie][] = [];
 
     constructor(public firebaseService: FirebaseService) {
@@ -18,7 +20,7 @@ export class RecipesComponent implements OnInit {
     };
 
     ngOnInit(): void {
-        setViewTitle('all');
+        setViewTitle(this.title);
     };
 
     listenUpdateData() {
