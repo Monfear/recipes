@@ -13,5 +13,9 @@
         >
     </div>
 
-    <p class="errors">{{ control.errors | json }}</p>
+    <p class="json">{{ control.errors | json }}</p>
+
+    <article class="errors" *ngIf="control.errors">
+        <p class="errors__error">test error here</p>
+    </article>
 </div>

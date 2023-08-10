@@ -1,3 +1,30 @@
+@use 'src/variables.scss' as *;
+
 .Control-select {
-    
+    & .field {
+
+        &__label {
+
+        }
+
+        &__select {
+
+            &__option {
+
+            }
+        }
+
+    }
+
+    & .json {
+        font-size: $text-small;
+    }
+
+    & .errors {
+
+        &__error {
+            font-size: $text-small;
+            color: red;
+        }
+    }
 }

@@ -1,3 +1,27 @@
+@use 'src/variables.scss' as *;
+
 .Control-checkbox {
-    
+
+    & .field {
+
+        &__label {
+
+        }
+
+        &__input {
+
+        }
+    }
+
+    & .json {
+        font-size: $text-small;
+    }
+
+    & .errors {
+
+        &__error {
+            font-size: $text-small;
+            color: red;
+        }
+    }
 }

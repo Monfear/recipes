@@ -1,11 +1,22 @@
 <div class="Control-select">
-    <label for="{{ alias }}">{{ alias[0].toUpperCase() + alias.slice(1) + ':' + ' ' }}</label>
+    <div class="field">
+        <label class="field__label" for="{{ alias }}">
+            {{ alias[0].toUpperCase() + alias.slice(1) + ':' + ' ' }}
+        </label>
 
-    <select name="{{ alias }}" id="{{ alias }}" [formControl]="control">
-        <option [value]="null" selected disabled>{{ prompt }}</option>
+        <select class="field__select" name="{{ alias }}" id="{{ alias }}" [formControl]="control">
+            <option [value]="null" disabled>{{ prompt }}</option>
 
-        <ng-container *ngFor="let option of options">
-            <option value="{{ option }}">{{ option }}</option>
-        </ng-container>
-    </select>
+            <ng-container *ngFor="let option of options">
+                <option class="field__select__option" value="{{ option }}">{{ option }}</option>
+            </ng-container>
+        </select>
+    </div>
+
+    <p class="json">{{ control.errors | json }}</p>
+
+    <article class="errors" *ngIf="control.errors">
+        <p class="errors__error" *ngIf="control.errors['required']">value is required</p>
+    </article>
+
 </div>

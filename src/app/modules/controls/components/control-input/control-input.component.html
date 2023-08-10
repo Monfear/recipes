@@ -12,9 +12,9 @@
         >
     </div>
 
-    <p class="errors">{{ control.errors | json }}</p>
+    <p class="json">{{ control.errors | json }}</p>
 
-    <article class="messages" *ngIf="control.errors">
-        <p class="messages__message" *ngIf="control.errors['required']">value is required</p>
+    <article class="errors" *ngIf="control.errors">
+        <p class="errors__error" *ngIf="control.errors['required']">value is required</p>
     </article>
 </div>

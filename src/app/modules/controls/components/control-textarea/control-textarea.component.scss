@@ -12,9 +12,13 @@
         }
     }
 
-    & .messages {
+    & .json {
+        font-size: $text-small;
+    }
 
-        &__message {
+    & .errors {
+
+        &__error {
             font-size: $text-small;
             color: red;
         }

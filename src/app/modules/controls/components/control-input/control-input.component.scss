@@ -1,6 +1,6 @@
 @use 'src/variables.scss' as *;
 
-div.Control-input {
+.Control-input {
 
     & .field {
         &__label {}
@@ -9,12 +9,12 @@ div.Control-input {
     }
 
 
-    & .errors {
+    & .json {
         font-size: $text-small;
     }
 
-    & .messages {
-        &__message {
+    & .errors {
+        &__error {
             font-size: $text-small;
             color: red;
         }

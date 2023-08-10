@@ -7,7 +7,9 @@
         <textarea class="field__textarea" id="{{ alias }}" name="{{ alias }}" [formControl]="control"></textarea>
     </div>
 
-    <article class="messages" *ngIf="control.errors">
-        <p class="messages__message" *ngIf="control.errors['required']">value is required</p>
+    <p class="json"> {{ control.errors | json }}</p>
+
+    <article class="errors" *ngIf="control.errors">
+        <p class="errors__error" *ngIf="control.errors['required']">value is required</p>
     </article>
 </div>
