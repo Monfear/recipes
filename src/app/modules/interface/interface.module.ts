@@ -8,9 +8,6 @@ import { HeadingComponent } from "./components/heading/heading.component";
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 import { SubheadingComponent } from "./components/subheading/subheading.component";
 
-import { FormControlInputComponent } from "./components/form-control-input/form-control-input.component";
-import { FormControlTextareaComponent } from "./components/form-control-textarea/form-control-textarea.component";
-
 @NgModule({
     imports: [
         CommonModule,
@@ -23,9 +20,6 @@ import { FormControlTextareaComponent } from "./components/form-control-textarea
         HeadingComponent,
         SubheadingComponent,
         SpinnerComponent,
-        FormControlInputComponent,
-        FormControlTextareaComponent,
-
     ],
 
     exports: [
@@ -34,9 +28,6 @@ import { FormControlTextareaComponent } from "./components/form-control-textarea
         HeadingComponent,
         SubheadingComponent,
         SpinnerComponent,
-        FormControlInputComponent,
-        FormControlTextareaComponent,
-
     ],
 })
 

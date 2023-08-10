@@ -2,12 +2,12 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from "@angular/forms";
 
 @Component({
-    selector: 'interface-form-control-input',
-    templateUrl: './form-control-input.component.html',
-    styleUrls: ['./form-control-input.component.scss']
+    selector: 'controls-input',
+    templateUrl: './control-input.component.html',
+    styleUrls: ['./control-input.component.scss']
 })
 
-export class FormControlInputComponent {
+export class ControlInputComponent {
     @Input() alias: string;
     @Input() control: FormControl<string | null>;
 

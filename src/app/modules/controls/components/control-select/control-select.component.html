@@ -1,0 +1,11 @@
+<div class="Control-select">
+    <label for="{{ alias }}">{{ alias[0].toUpperCase() + alias.slice(1) + ':' + ' ' }}</label>
+
+    <select name="{{ alias }}" id="{{ alias }}" [formControl]="control">
+        <option [value]="null" selected disabled>{{ prompt }}</option>
+
+        <ng-container *ngFor="let option of options">
+            <option value="{{ option }}">{{ option }}</option>
+        </ng-container>
+    </select>
+</div>

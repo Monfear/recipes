@@ -52,7 +52,7 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
         ]),
 
         ifVege: new FormControl<boolean | null>(null, [
-            Validators.required
+            // pass
         ])
     }, {
         validators: [],
@@ -65,7 +65,7 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
     };
 
     public ngOnChanges(): void {
-        console.log('>> ngOnChanges')
+        console.log('>> ngOnChanges');
     };
 
     public ngOnInit(): void {

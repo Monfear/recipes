@@ -2,12 +2,12 @@ import { Component, Input } from "@angular/core";
 import { FormControl } from "@angular/forms";
 
 @Component({
-    selector: 'interface-form-control-textarea',
-    templateUrl: './form-control-textarea.component.html',
-    styleUrls: ['./form-control-textarea.component.scss']
+    selector: 'controls-textarea',
+    templateUrl: './control-textarea.component.html',
+    styleUrls: ['./control-textarea.component.scss']
 })
 
-export class FormControlTextareaComponent {
+export class ControlTextareaComponent {
     @Input() alias: string;
     @Input() control: FormControl<string | null>;
 

@@ -11,62 +11,55 @@
                 </interface-form-control-input>
             </ng-container> -->
 
-            <interface-form-control-input
+            <controls-input
                 [alias]="'name'"
                 [control]="formGroup.controls.name"
             >
-            </interface-form-control-input>
+            </controls-input>
 
-            <interface-form-control-input
+            <controls-input
                 [alias]="'description'"
                 [control]="formGroup.controls.description"
             >
-            </interface-form-control-input>
+            </controls-input>
 
-            <interface-form-control-input
+            <controls-input
                 [alias]="'image url'"
                 [control]="formGroup.controls.imgUrl"
             >
-            </interface-form-control-input>
+            </controls-input>
 
-            <interface-form-control-textarea
+            <controls-textarea
                 [alias]="'preparation'"
                 [control]="formGroup.controls.preparation"
             >
-            </interface-form-control-textarea>
+            </controls-textarea>
 
             <ng-container
                 *ngFor="let control of this.formGroup.controls.ingredients.controls; let idx = index"
                 [formArrayName]="'ingredients'">
-                    <interface-form-control-input
+                    <controls-input
                         [alias]="'ingredient' + ' ' + (idx + 1)"
                         [control]="control"
                     >
-                    </interface-form-control-input>
+                    </controls-input>
 
                     <button type="button" (click)="removeInredientsControl(idx)">delete</button>
             </ng-container>
 
-            <div>
-                <label for="difficulty">difficulty</label>
+            <controls-select
+                [alias]="'difficulty'"
+                [control]="formGroup.controls.difficulty"
+                [prompt]="'difficulty of preparation'"
+                [options]="['easy', 'medium', 'hard']"
+            >
+            </controls-select>
 
-                <select name="difficulty" id="difficulty" [formControl]="formGroup.controls.difficulty">
-                    <option value="" selected disabled>Please choose an option</option>
-                    <option value="easy">easy</option>
-                    <option value="medium">medium</option>
-                    <option value="hard">hard</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="vege">vege</label>
-                <input
-                    id="vege"
-                    name="vege"
-                    type="checkbox"
-                    [formControl]="formGroup.controls.ifVege"
-                >
-            </div>
+            <controls-checkbox
+                [alias]="'vege'"
+                [control]="formGroup.controls.ifVege"
+            >
+            </controls-checkbox>
 
             <!-- <div>
                 <div>

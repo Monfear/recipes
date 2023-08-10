@@ -1,0 +1,17 @@
+<div class="Control-checkbox">
+    <div class="field">
+        <label class="field__label" for="{{ alias }}">
+            {{ this.alias[0].toUpperCase() + this.alias.slice(1) + ':' + ' ' }}
+        </label>
+
+        <input
+            class="field__input"
+            id="{{ alias }}"
+            name="{{ alias }}"
+            type="checkbox"
+            [formControl]="control"
+        >
+    </div>
+
+    <p class="errors">{{ control.errors | json }}</p>
+</div>
