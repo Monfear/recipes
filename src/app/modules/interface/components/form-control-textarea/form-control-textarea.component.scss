@@ -1,0 +1,22 @@
+@use 'src/variables.scss' as *;
+
+.Form-control-textarea {
+
+    & .field {
+        &__label {
+
+        }
+
+        &__textarea {
+            resize: none;
+        }
+    }
+
+    & .messages {
+
+        &__message {
+            font-size: $text-small;
+            color: red;
+        }
+    }
+}

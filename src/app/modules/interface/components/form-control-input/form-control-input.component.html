@@ -1,0 +1,20 @@
+<div class="Form-control-input">
+    <div class="field">
+        <label class="field__label" for="{{ this.alias }}">
+            {{ this.alias[0].toUpperCase() + this.alias.slice(1) + ':' }}
+        </label>
+
+        <input
+            class="field__input"
+            id="{{ this.alias }}"
+            [ngClass]="" type="text"
+            [formControl]="control"
+        >
+    </div>
+
+    <p class="errors">{{ control.errors | json }}</p>
+
+    <article class="messages" *ngIf="control.errors">
+        <p class="messages__message" *ngIf="control.errors['required']">value is required</p>
+    </article>
+</div>

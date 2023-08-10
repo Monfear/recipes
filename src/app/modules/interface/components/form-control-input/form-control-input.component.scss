@@ -1,0 +1,22 @@
+@use 'src/variables.scss' as *;
+
+div.Form-control-input {
+
+    & .field {
+        &__label {}
+
+        &__input {}
+    }
+
+
+    & .errors {
+        font-size: $text-small;
+    }
+
+    & .messages {
+        &__message {
+            font-size: $text-small;
+            color: red;
+        }
+    }
+}

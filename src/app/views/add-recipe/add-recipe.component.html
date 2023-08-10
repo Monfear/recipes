@@ -3,15 +3,110 @@
         <interface-heading>add recipe</interface-heading>
 
         <form class="form" [formGroup]="formGroup" (ngSubmit)="submitForm($event)">
-            <ng-container *ngFor="let entry of this.formGroupEntries">
-                <interface-form-control
+            <!-- <ng-container *ngFor="let entry of this.formGroupEntries">
+                <interface-form-control-input *ngIf="checkIfInstanceOfFormControl(entry[1])"
                     [alias]="entry[0]"
                     [control]="entry[1]"
                 >
-                </interface-form-control>
+                </interface-form-control-input>
+            </ng-container> -->
+
+            <interface-form-control-input
+                [alias]="'name'"
+                [control]="formGroup.controls.name"
+            >
+            </interface-form-control-input>
+
+            <interface-form-control-input
+                [alias]="'description'"
+                [control]="formGroup.controls.description"
+            >
+            </interface-form-control-input>
+
+            <interface-form-control-input
+                [alias]="'image url'"
+                [control]="formGroup.controls.imgUrl"
+            >
+            </interface-form-control-input>
+
+            <interface-form-control-textarea
+                [alias]="'preparation'"
+                [control]="formGroup.controls.preparation"
+            >
+            </interface-form-control-textarea>
+
+            <ng-container
+                *ngFor="let control of this.formGroup.controls.ingredients.controls; let idx = index"
+                [formArrayName]="'ingredients'">
+                    <interface-form-control-input
+                        [alias]="'ingredient' + ' ' + (idx + 1)"
+                        [control]="control"
+                    >
+                    </interface-form-control-input>
+
+                    <button type="button" (click)="removeInredientsControl(idx)">delete</button>
             </ng-container>
 
-            <button type="submit">click</button>
+            <div>
+                <label for="difficulty">difficulty</label>
+
+                <select name="difficulty" id="difficulty" [formControl]="formGroup.controls.difficulty">
+                    <option value="" selected disabled>Please choose an option</option>
+                    <option value="easy">easy</option>
+                    <option value="medium">medium</option>
+                    <option value="hard">hard</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="vege">vege</label>
+                <input
+                    id="vege"
+                    name="vege"
+                    type="checkbox"
+                    [formControl]="formGroup.controls.ifVege"
+                >
+            </div>
+
+            <!-- <div>
+                <div>
+                    <label for="yes">yes</label>
+                    <input type="radio" id="yes" name="vege" value='yes' [formControl]="formGroup.controls">
+                </div>
+                <div>
+                    <label for="no">no</label>
+                    <input type="radio" id="no" name="vege" value='no' [formControl]="formGroup.controls">
+                </div>
+            </div> -->
+
+
+            <br>
+            <br>
+
+            <button (click)="addIngredientsControl()">add ingredient</button>
+
+            <button type="submit">submit form</button>
         </form>
+
+
+
+
+
+        <div class="info">
+            <article class="info__field">
+                <h4 class="info__field__name">value</h4>
+                <p class="info__field__description">{{ this.formGroup.value | json}}</p>
+            </article>
+
+            <article class="info__field">
+                <h4 class="info__field__name">is valid</h4>
+                <p class="info__field__description">{{ this.formGroup.valid | json }}</p>
+            </article>
+
+            <article class="info__field">
+                <h4 class="info__field__name">common errors</h4>
+                <p class="info__field__description">{{ this.formGroup.errors | json }}</p>
+            </article>
+        </div>
     </div>
 </section>

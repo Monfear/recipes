@@ -7,7 +7,9 @@ import { ButtonComponent } from "./components/button/button.component";
 import { HeadingComponent } from "./components/heading/heading.component";
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 import { SubheadingComponent } from "./components/subheading/subheading.component";
-import { FormControlComponent } from "./components/form-control/form-control.component";
+
+import { FormControlInputComponent } from "./components/form-control-input/form-control-input.component";
+import { FormControlTextareaComponent } from "./components/form-control-textarea/form-control-textarea.component";
 
 @NgModule({
     imports: [
@@ -21,7 +23,9 @@ import { FormControlComponent } from "./components/form-control/form-control.com
         HeadingComponent,
         SubheadingComponent,
         SpinnerComponent,
-        FormControlComponent,
+        FormControlInputComponent,
+        FormControlTextareaComponent,
+
     ],
 
     exports: [
@@ -30,7 +34,9 @@ import { FormControlComponent } from "./components/form-control/form-control.com
         HeadingComponent,
         SubheadingComponent,
         SpinnerComponent,
-        FormControlComponent,
+        FormControlInputComponent,
+        FormControlTextareaComponent,
+
     ],
 })
 

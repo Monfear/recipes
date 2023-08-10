@@ -1,9 +1,11 @@
-import { FormControl } from '@angular/forms';
+import { FormArray, FormControl } from '@angular/forms';
 
 export interface IRecipeControls {
     name: FormControl<string | null>;
     description: FormControl<string | null>;
-    ingredients: FormControl<string[] | null>;
     preparation: FormControl<string | null>;
     imgUrl: FormControl<string | null>;
+    ingredients: FormArray<FormControl<string | null>>;
+    difficulty: FormControl<string | null>;
+    ifVege: FormControl<boolean | null>;
 };

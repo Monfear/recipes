@@ -1,0 +1,13 @@
+<div class="Form-control-textarea">
+    <div class="field">
+        <label class="field__label" for="{{ this.alias }}">
+            {{ this.alias[0].toUpperCase() + this.alias.slice(1) + ':' }}
+        </label>
+
+        <textarea class="field__textarea" id="{{this.alias}}" name="{{this.alias}}"></textarea>
+    </div>
+
+    <article class="messages" *ngIf="control.errors">
+        <p class="messages__message" *ngIf="control.errors['required']">value is required</p>
+    </article>
+</div>
