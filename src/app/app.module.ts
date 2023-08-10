@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from "./app-routing.module";
 import { InterfaceModule } from "./modules/interface/interface.module";
+import { ControlsModule } from "./modules/controls/controls.module";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from "./layout/navbar/navbar.component";
@@ -39,7 +40,8 @@ import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
         BrowserModule,
         ReactiveFormsModule,
 
-        InterfaceModule
+        InterfaceModule,
+        ControlsModule,
     ],
 
     providers: [],
