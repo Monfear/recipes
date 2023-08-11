@@ -3,6 +3,22 @@
 
         <interface-heading>{{ recipe?.name }}</interface-heading>
 
+        <article class="vege">
+            <interface-subheading>is vege</interface-subheading>
+            <p class="vege__text">{{ recipe?.ifVege }}</p>
+        </article>
+
+        <article class="difficulty">
+            <interface-subheading>difficulty</interface-subheading>
+            <p class="difficulty__text">{{ recipe?.difficulty }}</p>
+        </article>
+
+        <article class="description">
+            <interface-subheading>description</interface-subheading>
+
+            <p class="description__text">{{ recipe?.description }}</p>
+        </article>
+
         <article class="ingredients">
             <interface-subheading>ingredients</interface-subheading>
 
