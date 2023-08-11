@@ -44,7 +44,7 @@
                     >
                     </controls-input>
 
-                    <button type="button" (click)="removeInredientsControl(idx)">delete</button>
+                    <button type="button" (click)="removeIngredientsControl(idx)">delete</button>
             </ng-container>
 
             <controls-select
@@ -72,16 +72,15 @@
                 </div>
             </div> -->
 
-
-            <br>
-            <br>
-
             <button (click)="addIngredientsControl()">add ingredient</button>
 
             <button type="submit">submit form</button>
         </form>
 
 
+        <article class="error" *ngIf="this.errMsg">
+            <p class="error__text">{{ this.errMsg }}</p>
+        </article>
 
 
 

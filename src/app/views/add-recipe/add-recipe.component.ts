@@ -1,7 +1,9 @@
 import { Component, OnChanges, OnInit, DoCheck, OnDestroy } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
 import { setViewTitle } from "src/app/functions/setViewTitle";
+import { FirebaseService } from "src/app/services/firebase.service";
 import { IRecipeControls } from "src/app/types/Recipe-controls.interface";
+import { IRecipie } from "src/app/types/Recipe.interface";
 
 @Component({
     selector: 'app-add-recipe',
@@ -11,6 +13,7 @@ import { IRecipeControls } from "src/app/types/Recipe-controls.interface";
 
 export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
     private title: string = 'add recipe';
+    protected errMsg: string;
 
     protected formGroupEntries: [string, FormControl<string | null>][];
 
@@ -31,7 +34,7 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
 
         imgUrl: new FormControl<string | null>(null, [
             Validators.required,
-            Validators.pattern(/[\b(?:https?|ftp)://\S+\.(?:png|jpe?g|gif|bmp|webp)\b]/),
+            // Validators.pattern(/[\b(?:https?|ftp)://\S+\.(?:png|jpe?g|gif|bmp|webp)\b]/),
         ]),
 
         ingredients: new FormArray<FormControl<string | null>>([
@@ -51,14 +54,14 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
             Validators.required
         ]),
 
-        ifVege: new FormControl<boolean | null>(null, [
+        ifVege: new FormControl<boolean | null>(false, [
             // pass
         ])
     }, {
         validators: [],
     });
 
-    constructor() {
+    constructor(private firebaseService: FirebaseService) {
         console.log('>> constructor');
 
         this.formGroupEntries = Object.entries(this.formGroup.controls);
@@ -82,13 +85,6 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
         console.log('>> ngOnDestroy');
     };
 
-    protected submitForm(e: SubmitEvent): void {
-        e.preventDefault();
-
-        console.log(e);
-        console.log(this.formGroup);
-    };
-
     protected addIngredientsControl(): void {
         this.formGroup.controls.ingredients.push(new FormControl<string | null>(null, [
             Validators.required,
@@ -97,7 +93,26 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
         ]));
     };
 
-    protected removeInredientsControl(idx: number): void {
+    protected removeIngredientsControl(idx: number): void {
         this.formGroup.controls.ingredients.removeAt(idx);
+    };
+
+    protected async submitForm(e: SubmitEvent) {
+        e.preventDefault();
+
+        if (!this.formGroup.valid) {
+            this.errMsg = 'Please fill in all fields correctly.';
+            return;
+        };
+
+        try {
+            const data: IRecipie = this.formGroup.value as IRecipie;
+
+            await this.firebaseService.addSingleData(data);
+        } catch (error) {
+            if (error instanceof Error) {
+                console.warn(`[!] ${error.message}`);
+            };
+        };
     };
 };
