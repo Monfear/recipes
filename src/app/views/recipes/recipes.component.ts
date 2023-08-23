@@ -34,7 +34,7 @@ export class RecipesComponent implements OnInit {
 
                 if (!value && !snapshot.exists()) {
                     this.recipes = [];
-                    throw new Error('[-] no data in database to convert into object');
+                    throw new Error('[-] no data in database to convert into an object');
                 };
 
                 const data: [string, IRecipie][] = Object.entries(snapshot.val());

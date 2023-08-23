@@ -22,12 +22,6 @@ export class FirebaseService {
         this.db = getDatabase();
     };
 
-    public async removeData(id: string): Promise<void> {
-        const reference: DatabaseReference = ref(this.db, this.collection + '/' + id);
-
-        await remove(reference);
-    };
-
     public async getSingleData(id: string): Promise<IRecipie | undefined> {
         let data: IRecipie | undefined;
 
@@ -55,5 +49,11 @@ export class FirebaseService {
         const reference: DatabaseReference = ref(this.db, this.collection);
 
         await push(reference, data);
+    };
+
+    public async removeSingleData(id: string): Promise<void> {
+        const reference: DatabaseReference = ref(this.db, this.collection + '/' + id);
+
+        await remove(reference);
     };
 };

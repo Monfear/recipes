@@ -3,35 +3,39 @@
 
         <interface-heading>{{ recipe?.name }}</interface-heading>
 
-        <article class="vege">
-            <interface-subheading>is vege</interface-subheading>
-            <p class="vege__text">{{ recipe?.ifVege }}</p>
-        </article>
+        <button type="button" (click)="removeRecipe()">delete recipe</button>
 
-        <article class="difficulty">
-            <interface-subheading>difficulty</interface-subheading>
-            <p class="difficulty__text">{{ recipe?.difficulty }}</p>
-        </article>
+        <main class="info">
+            <article class="info__term">
+                <interface-subheading>is vege</interface-subheading>
+                <p class="info__description">{{ recipe?.ifVege }}</p>
+            </article>
 
-        <article class="description">
-            <interface-subheading>description</interface-subheading>
+            <article class="info__term">
+                <interface-subheading>difficulty</interface-subheading>
+                <p class="info__text">{{ recipe?.difficulty }}</p>
+            </article>
 
-            <p class="description__text">{{ recipe?.description }}</p>
-        </article>
+            <article class="info__term">
+                <interface-subheading>description</interface-subheading>
 
-        <article class="ingredients">
-            <interface-subheading>ingredients</interface-subheading>
+                <p class="info__text">{{ recipe?.description }}</p>
+            </article>
 
-            <ng-container *ngFor="let item of recipe?.ingredients; let idx = index">
-                <p class="ingredients__ingredient">{{ item }}</p>
-            </ng-container>
-        </article>
+            <article class="info__term">
+                <interface-subheading>ingredients</interface-subheading>
 
-        <article class="preparation">
-            <interface-subheading>preparation</interface-subheading>
+                <ng-container *ngFor="let item of recipe?.ingredients; let idx = index">
+                    <p class="info__text">{{ item }}</p>
+                </ng-container>
+            </article>
 
-            <p class="preparation__text">{{ recipe?.preparation }}</p>
-        </article>
+            <article class="info__term">
+                <interface-subheading>preparation</interface-subheading>
+
+                <p class="info__text">{{ recipe?.preparation }}</p>
+            </article>
+        </main>
     </div>
 
     <picture class="picture">

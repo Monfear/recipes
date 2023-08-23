@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, DoCheck, OnDestroy } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { setViewTitle } from "src/app/functions/setViewTitle";
 import { FirebaseService } from "src/app/services/firebase.service";
 import { IRecipeControls } from "src/app/types/Recipe-controls.interface";
@@ -61,7 +62,7 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
         validators: [],
     });
 
-    constructor(private firebaseService: FirebaseService) {
+    constructor(private firebaseService: FirebaseService, private router: Router) {
         console.log('>> constructor');
 
         this.formGroupEntries = Object.entries(this.formGroup.controls);
@@ -109,6 +110,8 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
             const data: IRecipie = this.formGroup.value as IRecipie;
 
             await this.firebaseService.addSingleData(data);
+
+            this.router.navigateByUrl('recipes');
         } catch (error) {
             if (error instanceof Error) {
                 console.warn(`[!] ${error.message}`);
