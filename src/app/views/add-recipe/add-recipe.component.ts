@@ -70,6 +70,7 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
 
     public ngOnChanges(): void {
         console.log('>> ngOnChanges');
+        
     };
 
     public ngOnInit(): void {
@@ -80,6 +81,7 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
 
     public ngDoCheck(): void {
         console.log('>> ngDoCheck');
+        console.log(this.formGroup.controls.ingredients)
     };
 
     public ngOnDestroy(): void {
@@ -95,6 +97,10 @@ export class AddRecipeComponent implements OnInit, OnChanges, DoCheck, OnDestroy
     };
 
     protected removeIngredientsControl(idx: number): void {
+        if (this.formGroup.controls.ingredients.controls.length === 1) {
+            return
+        };
+
         this.formGroup.controls.ingredients.removeAt(idx);
     };
 

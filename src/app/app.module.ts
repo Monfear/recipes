@@ -14,6 +14,7 @@ import { NotFoundComponent } from "./views/not-found/not-found.component";
 import { RecipeCardComponent } from "./content/recipe-card/recipe-card.component";
 import { FooterComponent } from "./layout/footer/footer.component";
 import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
+import { EditRecipeComponent } from "./views/edit-recipe/edit-recipe.component";
 
 @NgModule({
     declarations: [
@@ -23,9 +24,11 @@ import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
         // views
         HomeComponent,
         NotFoundComponent,
+
         RecipesComponent,
         RecipeComponent,
         AddRecipeComponent,
+        EditRecipeComponent,
 
         // layout
         NavbarComponent,

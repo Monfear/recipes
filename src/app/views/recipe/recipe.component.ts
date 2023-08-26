@@ -27,6 +27,8 @@ export class RecipeComponent implements OnInit {
         } else {
             setViewTitle(this.title);
         };
+
+        console.log(this.recipe)
     };
 
     public getParams(): void {
@@ -41,14 +43,15 @@ export class RecipeComponent implements OnInit {
 
             if (!recipe) {
                 this.router.navigateByUrl('not-found');
-                return
+
+                return;
             };
 
             this.recipe = recipe;
         });
     };
 
-    removeRecipe() {
+    protected removeRecipe(): void {
         if (!this.id) {
             console.warn('[!] invalid id');
             return;
@@ -65,5 +68,9 @@ export class RecipeComponent implements OnInit {
                     console.warn(`[!] ${err.message}`);
                 };
             });
+    };
+
+    protected moveToEditRecipePage(): void {
+        this.router.navigateByUrl(`recipes/${this.id}/edit-recipe`);
     };
 };

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FirebaseApp, initializeApp } from "firebase/app";
-import { Database, DatabaseReference, getDatabase, ref, push, remove, get, DataSnapshot } from 'firebase/database';
+import { Database, DatabaseReference, getDatabase, ref, push, remove, get, DataSnapshot, update } from 'firebase/database';
 import { firebaseConfig } from "src/config/firebase.config";
 import { IRecipie } from "../types/Recipe.interface";
 import { BehaviorSubject } from "rxjs";
@@ -55,5 +55,11 @@ export class FirebaseService {
         const reference: DatabaseReference = ref(this.db, this.collection + '/' + id);
 
         await remove(reference);
+    };
+
+    public async updateSingleData(id: string, data: IRecipie): Promise<void> {
+        const reference: DatabaseReference = ref(this.db, this.collection + '/' + id);
+
+        await update(reference, data);
     };
 };

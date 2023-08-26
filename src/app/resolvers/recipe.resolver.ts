@@ -1,4 +1,4 @@
-import { ActivatedRouteSnapshot, Params, ResolveFn, Router, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, Params, ResolveFn, RouterStateSnapshot } from "@angular/router";
 import { inject } from '@angular/core';
 import { Observable } from "rxjs";
 import { FirebaseService } from "../services/firebase.service";

@@ -4,6 +4,7 @@
         <interface-heading>{{ recipe?.name }}</interface-heading>
 
         <button type="button" (click)="removeRecipe()">delete recipe</button>
+        <button type="button" (click)="moveToEditRecipePage()">update recipe</button>
 
         <main class="info">
             <article class="info__term">
@@ -24,6 +25,10 @@
 
             <article class="info__term">
                 <interface-subheading>ingredients</interface-subheading>
+
+                <ng-container *ngIf="recipe?.ingredients">
+                    <p class="info__text">No ingredients</p>
+                </ng-container>
 
                 <ng-container *ngFor="let item of recipe?.ingredients; let idx = index">
                     <p class="info__text">{{ item }}</p>
