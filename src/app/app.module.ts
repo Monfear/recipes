@@ -15,6 +15,7 @@ import { RecipeCardComponent } from "./content/recipe-card/recipe-card.component
 import { FooterComponent } from "./layout/footer/footer.component";
 import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
 import { EditRecipeComponent } from "./views/edit-recipe/edit-recipe.component";
+import { RecipeFormComponent } from "./content/recipe-form/recipe-form.component";
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { EditRecipeComponent } from "./views/edit-recipe/edit-recipe.component";
 
         // content
         RecipeCardComponent,
+        RecipeFormComponent
     ],
 
     imports: [

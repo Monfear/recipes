@@ -1,0 +1,77 @@
+<form class="Recipe-form"
+    [formGroup]="formGroup"
+    (ngSubmit)="action === ACTIONS.ADD ? addRecipeSubmit() : action === ACTIONS.EDIT ? editRecipeSubmit() : null">
+
+    <controls-input
+        [alias]="'name'"
+        [control]="formGroup.controls.name"
+    >
+    </controls-input>
+
+    <controls-input
+        [alias]="'description'"
+        [control]="formGroup.controls.description"
+    >
+    </controls-input>
+
+    <controls-input
+        [alias]="'image url'"
+        [control]="formGroup.controls.imgUrl"
+    >
+    </controls-input>
+
+    <controls-textarea
+        [alias]="'preparation'"
+        [control]="formGroup.controls.preparation"
+    >
+    </controls-textarea>
+
+    <ng-container
+        *ngFor="let control of this.formGroup.controls.ingredients.controls; let idx = index"
+        [formArrayName]="'ingredients'">
+
+            <controls-input
+                [alias]="'ingredient' + ' ' + (idx + 1)"
+                [control]="control"
+            >
+            </controls-input>
+
+            <button type="button" (click)="removeIngredientsControl(idx)">delete</button>
+    </ng-container>
+
+    <controls-select
+        [alias]="'difficulty'"
+        [control]="formGroup.controls.difficulty"
+        [prompt]="'difficulty of preparation'"
+        [options]="['easy', 'medium', 'hard']"
+    >
+    </controls-select>
+
+    <controls-checkbox
+        [alias]="'vege'"
+        [control]="formGroup.controls.ifVege"
+    >
+    </controls-checkbox>
+
+    <button type="button" (click)="addIngredientsControl()">add ingredient</button>
+
+    <button type="submit">submit form</button>
+
+    <div class="info">
+        <article class="info__field">
+            <h4 class="info__field__name">value</h4>
+            <p class="info__field__description">{{ this.formGroup.value | json}}</p>
+        </article>
+
+        <article class="info__field">
+            <h4 class="info__field__name">is valid</h4>
+            <p class="info__field__description">{{ this.formGroup.valid | json }}</p>
+        </article>
+
+        <article class="info__field">
+            <h4 class="info__field__name">common errors</h4>
+            <p class="info__field__description">{{ this.formGroup.errors | json }}</p>
+        </article>
+    </div>
+
+</form>
