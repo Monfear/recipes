@@ -1,5 +1,5 @@
-<div class="Modal">
-    <div class="box">
+<div class="Modal" (click)="this.modalService.closeModal()">
+    <div class="box" (click)="$event.stopPropagation()">
         <article class="box__content">
             <p class="box__content__message">Recipe has been added.</p>
             <button class="box__content__button" (click)="this.modalService.closeModal()">click</button>
