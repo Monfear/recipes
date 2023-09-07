@@ -6,4 +6,6 @@
     </div>
 </section>
 
-<app-modal></app-modal>
+<app-modal *ngIf="this.modalService.ifModalVisible"></app-modal>
+
+<button (click)="this.modalService.openModal()">open modal</button>
