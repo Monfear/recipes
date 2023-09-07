@@ -21,6 +21,8 @@ export class RecipesComponent implements OnInit {
 
     ngOnInit(): void {
         setViewTitle(this.title);
+
+        this.firebaseService.ifLoadingBehaviorSubject.next(true);
     };
 
     listenUpdateData() {

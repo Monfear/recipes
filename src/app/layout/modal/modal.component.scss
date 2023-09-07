@@ -1,0 +1,37 @@
+@use 'src/variables.scss' as *;
+
+.Modal {
+    background-color: rgba(0, 0, 0, 0.8);
+
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .box {
+        background-color: #fff;
+        width: 400px;
+        height: 200px;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        &__content {
+            text-align: center;
+
+            &__message {
+                margin-bottom: 1rem;
+
+            }
+
+            &__button {}
+        }
+    }
+
+
+}

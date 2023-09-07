@@ -16,6 +16,7 @@ import { FooterComponent } from "./layout/footer/footer.component";
 import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
 import { EditRecipeComponent } from "./views/edit-recipe/edit-recipe.component";
 import { RecipeFormComponent } from "./content/recipe-form/recipe-form.component";
+import { ModalComponent } from "./layout/modal/modal.component";
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { RecipeFormComponent } from "./content/recipe-form/recipe-form.component
         // layout
         NavbarComponent,
         FooterComponent,
+        ModalComponent,
 
         // content
         RecipeCardComponent,
