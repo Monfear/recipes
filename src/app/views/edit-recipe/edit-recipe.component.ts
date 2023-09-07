@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, Data, Params, Router } from "@angular/router";
 import { setViewTitle } from "src/app/functions/setViewTitle";
+import { ModalService } from "src/app/services/modal.service";
 import { IRecipie } from "src/app/types/Recipe.interface";
 
 @Component({
@@ -15,7 +16,7 @@ export class EditRecipeComponent {
     protected id: string | null = null;
     protected recipe: IRecipie | null = null;
 
-    constructor(private route: ActivatedRoute, private router: Router) {
+    constructor(protected modalService: ModalService, private route: ActivatedRoute, private router: Router) {
         setViewTitle(this.title);
 
         this.getParams();

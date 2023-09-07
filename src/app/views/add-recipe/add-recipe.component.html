@@ -6,6 +6,10 @@
     </div>
 </section>
 
-<app-modal *ngIf="this.modalService.ifModalVisible"></app-modal>
+<app-modal
+    message="recipe has been added"
+    redirectPath="recipes"
+    *ngIf="this.modalService.ifModalVisible">
+</app-modal>
 
-<button (click)="this.modalService.openModal()">open modal</button>
+<!-- <button (click)="this.modalService.openModal()">open modal</button> -->

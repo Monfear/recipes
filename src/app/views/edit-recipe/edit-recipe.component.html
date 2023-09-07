@@ -5,3 +5,9 @@
         <app-recipe-form [action]="'EDIT'" [id]="id" [recipe]="recipe"></app-recipe-form>
     </div>
 </section>
+
+<app-modal
+    message="recipe has been edited"
+    redirectPath="recipes"
+    *ngIf="this.modalService.ifModalVisible">
+</app-modal>

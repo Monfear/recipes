@@ -1,7 +1,7 @@
 <div class="Modal" (click)="this.modalService.closeModal()">
     <div class="box" (click)="$event.stopPropagation()">
         <article class="box__content">
-            <p class="box__content__message">Recipe has been added.</p>
+            <p class="box__content__message">{{ message[0].toUpperCase() + message.slice(1) + '.' }}</p>
             <button class="box__content__button" (click)="this.modalService.closeModal()">click</button>
         </article>
     </div>

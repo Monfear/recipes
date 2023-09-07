@@ -2,6 +2,7 @@ import { Component, Input, SimpleChanges } from "@angular/core";
 import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { FirebaseService } from "src/app/services/firebase.service";
+import { ModalService } from "src/app/services/modal.service";
 import { IRecipeControls } from "src/app/types/Recipe-controls.interface";
 import { IRecipeFormActions } from "src/app/types/Recipe-form-actions.interface";
 import { IRecipie } from "src/app/types/Recipe.interface";
@@ -24,7 +25,6 @@ export class RecipeFormComponent {
 
     protected errMsg: string;
     protected formGroupEntries: [string, FormControl<string | null>][];
-
 
     protected formGroup: FormGroup<IRecipeControls> = new FormGroup({
         name: new FormControl<string | null>(null, [
@@ -58,7 +58,11 @@ export class RecipeFormComponent {
         validators: [],
     });
 
-    constructor(private firebaseService: FirebaseService, private router: Router) {
+    constructor(
+        private firebaseService: FirebaseService,
+        private modalService: ModalService,
+        private router: Router
+    ) {
         // pass
     };
 
@@ -87,7 +91,7 @@ export class RecipeFormComponent {
 
     protected removeIngredientsControl(idx: number): void {
         if (this.formGroup.controls.ingredients.controls.length === 1) {
-            return
+            return;
         };
 
         this.formGroup.controls.ingredients.removeAt(idx);
@@ -117,7 +121,7 @@ export class RecipeFormComponent {
 
             await this.firebaseService.addSingleData(data);
 
-            this.router.navigateByUrl('recipes');
+            this.modalService.openModal();
         } catch (error) {
             if (error instanceof Error) {
                 console.warn(`[!] ${error.message}`);
@@ -132,12 +136,12 @@ export class RecipeFormComponent {
 
         if (!this.formGroup.controls.name.value) {
             return;
-        }
+        };
 
         const newData: IRecipie = this.formGroup.value as IRecipie;
 
         this.firebaseService.updateSingleData(this.id, newData);
 
-        this.router.navigateByUrl('recipes');
+        this.modalService.openModal();
     };
 };

@@ -14,7 +14,7 @@ export class FirebaseService {
     public app: FirebaseApp;
     public db: Database;
 
-    public ifLoadingBehaviorSubject: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    public ifLoadingBehaviorSubject: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
     public collection: string = 'recipes';
 

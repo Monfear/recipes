@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnDestroy, OnInit } from "@angular/core";
+import { Component, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { ModalService } from "src/app/services/modal.service";
 
 @Component({
@@ -8,7 +9,10 @@ import { ModalService } from "src/app/services/modal.service";
 })
 
 export class ModalComponent implements OnInit, OnDestroy {
-    constructor(protected modalService: ModalService, private ref: ElementRef) {
+    @Input() message: string;
+    @Input() redirectPath?: string;
+
+    constructor(protected modalService: ModalService, private ref: ElementRef, private router: Router) {
         // pass
     };
 
@@ -18,5 +22,9 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.ref.nativeElement.remove();
+
+        if (this.redirectPath) {
+            this.router.navigateByUrl(this.redirectPath);
+        };
     };
 };

@@ -47,3 +47,9 @@
         <img class="picture__img" [src]="recipe?.imgUrl" alt="{{ recipe?.name }}">
     </picture>
 </section>
+
+<app-modal
+    message="recipe has been deleted"
+    redirectPath="recipes"
+    *ngIf="this.modalService.ifModalVisible">
+</app-modal>

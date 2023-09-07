@@ -3,6 +3,7 @@ import { FirebaseService } from "src/app/services/firebase.service";
 import { DataSnapshot, DatabaseReference, onValue, ref } from "firebase/database";
 import { IRecipie } from "src/app/types/Recipe.interface";
 import { setViewTitle } from "src/app/functions/setViewTitle";
+import { ModalService } from "src/app/services/modal.service";
 
 @Component({
     selector: 'app-recipes',
@@ -22,7 +23,7 @@ export class RecipesComponent implements OnInit {
     ngOnInit(): void {
         setViewTitle(this.title);
 
-        this.firebaseService.ifLoadingBehaviorSubject.next(true);
+        // this.firebaseService.ifLoadingBehaviorSubject.next(true);
     };
 
     listenUpdateData() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data, Params, Router } from "@angular/router";
 import { setViewTitle } from "src/app/functions/setViewTitle";
 import { FirebaseService } from "src/app/services/firebase.service";
+import { ModalService } from "src/app/services/modal.service";
 import { IRecipie } from "src/app/types/Recipe.interface";
 
 @Component({
@@ -16,19 +17,24 @@ export class RecipeComponent implements OnInit {
     public id: string | null = null;
     public recipe: IRecipie | null = null;
 
-    constructor(private route: ActivatedRoute, private router: Router, protected firebaseService: FirebaseService) {
+    constructor(
+        protected firebaseService: FirebaseService,
+        protected modalService: ModalService,
+        private route: ActivatedRoute,
+        private router: Router,
+    ) {
         this.getParams();
         this.getData();
     };
 
-    ngOnInit() {
+    ngOnInit(): void {
         if (this.recipe) {
             setViewTitle(this.recipe.name);
         } else {
             setViewTitle(this.title);
         };
 
-        console.log(this.recipe)
+        console.log(this.recipe);
     };
 
     public getParams(): void {
@@ -61,7 +67,7 @@ export class RecipeComponent implements OnInit {
             .then((value: void) => {
                 console.log(value);
 
-                this.router.navigateByUrl('recipes')
+                this.modalService.openModal();
             })
             .catch((err) => {
                 if (err instanceof Error) {
