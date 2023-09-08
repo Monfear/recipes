@@ -33,8 +33,6 @@ export class RecipeComponent implements OnInit {
         } else {
             setViewTitle(this.title);
         };
-
-        console.log(this.recipe);
     };
 
     public getParams(): void {
@@ -77,6 +75,6 @@ export class RecipeComponent implements OnInit {
     };
 
     protected moveToEditRecipePage(): void {
-        this.router.navigateByUrl(`recipes/${this.id}/edit-recipe`);
+        this.router.navigateByUrl(`/recipes/${this.id}/edit-recipe`);
     };
 };

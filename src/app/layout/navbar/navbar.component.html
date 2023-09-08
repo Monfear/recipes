@@ -3,8 +3,30 @@
         <interface-logo></interface-logo>
 
         <nav class="nav">
-            <a class="nav__link" routerLink="/recipes" routerLinkActive="activated">recipes</a>
-            <a class="nav__link" routerLink="/add-recipe" routerLinkActive="activated">add recipe</a>
+            <a
+                class="nav__link"
+                routerLink="/"
+                routerLinkActive="activated"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                home
+            </a>
+            <a
+                class="nav__link"
+                routerLink="/recipes"
+                routerLinkActive="activated"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                recipes
+            </a>
+            <a
+                class="nav__link"
+                routerLink="/add-recipe"
+                routerLinkActive="activated"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                add recipe
+            </a>
         </nav>
     </div>
 </div>
