@@ -17,6 +17,8 @@ import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
 import { EditRecipeComponent } from "./views/edit-recipe/edit-recipe.component";
 import { RecipeFormComponent } from "./content/recipe-form/recipe-form.component";
 import { ModalComponent } from "./layout/modal/modal.component";
+import { LoginViewComponent } from "./views/login/login.component";
+import { RegisterViewComponent } from "./views/register/register.component";
 
 @NgModule({
     declarations: [
@@ -31,6 +33,8 @@ import { ModalComponent } from "./layout/modal/modal.component";
         RecipeComponent,
         AddRecipeComponent,
         EditRecipeComponent,
+        RegisterViewComponent,
+        LoginViewComponent,
 
         // layout
         NavbarComponent,

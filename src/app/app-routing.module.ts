@@ -8,6 +8,8 @@ import { RecipeComponent } from "./views/recipe/recipe.component";
 import { recipeResolver } from "./resolvers/recipe.resolver";
 import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
 import { EditRecipeComponent } from "./views/edit-recipe/edit-recipe.component";
+import { LoginViewComponent } from "./views/login/login.component";
+import { RegisterViewComponent } from "./views/register/register.component";
 
 const appRoutes: Route[] = [
     {
@@ -35,6 +37,14 @@ const appRoutes: Route[] = [
         resolve: {
             recipe: recipeResolver
         },
+    },
+    {
+        path: 'register',
+        component: RegisterViewComponent,
+    },
+    {
+        path: 'login',
+        component: LoginViewComponent,
     },
 
     {
