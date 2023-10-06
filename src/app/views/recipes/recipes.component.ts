@@ -16,7 +16,7 @@ export class RecipesComponent implements OnInit {
     public recipes: [string, IRecipie][] = [];
 
     constructor(public firebaseService: FirebaseService) {
-        this.firebaseService.ifLoadingBehaviorSubject.next(true);
+        // this.firebaseService.ifLoadingBehaviorSubject.next(true);
         this.listenUpdateData();
     };
 
@@ -27,6 +27,8 @@ export class RecipesComponent implements OnInit {
     listenUpdateData() {
         const reference: DatabaseReference = ref(this.firebaseService.db, this.firebaseService.collection);
 
+        this.firebaseService.ifLoadingBehaviorSubject.next(true);
+
         onValue(reference, (snapshot: DataSnapshot) => {
             console.log('[i]', 'onValue');
 
@@ -35,6 +37,7 @@ export class RecipesComponent implements OnInit {
 
                 if (!value && !snapshot.exists()) {
                     this.recipes = [];
+
                     throw new Error('[-] no data in database to convert into an object');
                 };
 

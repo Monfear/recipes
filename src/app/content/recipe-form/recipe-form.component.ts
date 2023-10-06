@@ -76,8 +76,11 @@ export class RecipeFormComponent {
         };
     };
 
-    ngOnit() {
+    ngOnInit() {
         this.formGroupEntries = Object.entries(this.formGroup.controls);
+
+        // console.log(this.formGroup.controls);
+        // console.log(this.formGroupEntries);
     };
 
 
@@ -113,6 +116,7 @@ export class RecipeFormComponent {
     protected async addRecipeSubmit(): Promise<void> {
         if (!this.formGroup.valid) {
             this.errMsg = 'Please fill in all fields correctly.';
+
             return;
         };
 

@@ -36,7 +36,7 @@ const appRoutes: Route[] = [
         component: EditRecipeComponent,
         resolve: {
             recipe: recipeResolver
-        },
+        }
     },
     {
         path: 'register',

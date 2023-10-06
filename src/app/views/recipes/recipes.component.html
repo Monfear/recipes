@@ -4,11 +4,11 @@
 
         <interface-spinner *ngIf="firebaseService.ifLoadingBehaviorSubject | async"></interface-spinner>
 
-        <div class="cards">
+        <main class="cards">
             <ng-container *ngFor="let item of this.recipes">
                 <app-recipe-card [id]="item[0]" [data]="item[1]"></app-recipe-card>
             </ng-container>
-        </div>
+        </main>
 
         <p class="info"
             *ngIf="(this.recipes.length === 0) && !(this.firebaseService.ifLoadingBehaviorSubject | async)"

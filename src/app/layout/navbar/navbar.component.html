@@ -2,7 +2,7 @@
     <div class="CONTAINER">
         <interface-logo></interface-logo>
 
-        <nav class="nav">
+        <!-- <nav class="nav">
             <a
                 class="nav__link"
                 routerLink="/"
@@ -43,6 +43,19 @@
             >
                 login
             </a>
+        </nav> -->
+
+        <nav class="nav">
+            <ng-container *ngFor="let route of routes">
+                <a
+                    class="nav__link"
+                    [routerLink]="route"
+                    [routerLinkActive]="'activated'"
+                    [routerLinkActiveOptions]="{exact: true}"
+                >
+                    {{ route === '' ? 'home' : route.replaceAll('-', ' ')}}
+                </a>
+            </ng-container>
         </nav>
     </div>
 </div>

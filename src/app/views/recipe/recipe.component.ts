@@ -58,6 +58,7 @@ export class RecipeComponent implements OnInit {
     protected removeRecipe(): void {
         if (!this.id) {
             console.warn('[!] invalid id');
+
             return;
         };
 

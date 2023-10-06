@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 
 export class NavbarComponent {
+    protected routes: string[] = ['', 'recipes', 'add-recipe', 'register', 'login'];
+
     constructor() {
         // pass
     };

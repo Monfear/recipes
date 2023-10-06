@@ -10,7 +10,7 @@ import { ModalService } from "src/app/services/modal.service";
 
 export class ModalComponent implements OnInit, OnDestroy {
     @Input() message: string;
-    @Input() redirectPath?: string;
+    @Input() redirectPath: string | null;
 
     constructor(protected modalService: ModalService, private ref: ElementRef, private router: Router) {
         // pass
