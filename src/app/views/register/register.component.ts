@@ -1,4 +1,8 @@
 import { Component } from "@angular/core";
+import { setViewTitle } from "src/app/functions/setViewTitle";
+
+import { AuthService } from "src/app/services/auth.service";
+import { ModalService } from "src/app/services/modal.service";
 
 @Component({
     selector: 'app-register-view',
@@ -7,7 +11,9 @@ import { Component } from "@angular/core";
 })
 
 export class RegisterViewComponent {
-    constructor() {
-        // pas
+    private title: string = 'register';
+
+    constructor(protected authService: AuthService, protected modalService: ModalService) {
+        setViewTitle(this.title);
     };
 };

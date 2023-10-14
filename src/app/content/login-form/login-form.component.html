@@ -1,0 +1,35 @@
+<form class="Login-form" (submit)="submitForm($event)">
+    <div class="control">
+        <label class="control__label" for="email">email</label>
+
+        <input
+            class="control__input"
+            id="email"
+            name="email"
+            type="text"
+            [(ngModel)]="userInfo.email"
+            #email="ngModel"
+        >
+
+        <p class="control__error" *ngIf="email.touched && !email.value">email is required</p>
+    </div>
+
+    <div class="control">
+        <label class="control__label" for="password">password</label>
+
+        <input
+            class="control__input"
+            id="password"
+            name="password"
+            type="text"
+            [(ngModel)]="userInfo.password"
+            #password="ngModel"
+        >
+
+        <p class="control__error" *ngIf="password.touched && !password.value">password is required</p>
+    </div>
+
+    <p class="error">{{ authService.errorMessage }}</p>
+
+    <button type="submit">log in</button>
+</form>

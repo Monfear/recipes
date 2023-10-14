@@ -10,6 +10,8 @@ import { AddRecipeComponent } from "./views/add-recipe/add-recipe.component";
 import { EditRecipeComponent } from "./views/edit-recipe/edit-recipe.component";
 import { LoginViewComponent } from "./views/login/login.component";
 import { RegisterViewComponent } from "./views/register/register.component";
+import { AccountViewComponent } from "./views/account/account.component";
+import { accountGuard } from "./guards/account.guard";
 
 const appRoutes: Route[] = [
     {
@@ -45,6 +47,11 @@ const appRoutes: Route[] = [
     {
         path: 'login',
         component: LoginViewComponent,
+    },
+    {
+        path: 'account',
+        component: AccountViewComponent,
+        canActivate: [accountGuard]
     },
 
     {

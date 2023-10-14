@@ -2,49 +2,6 @@
     <div class="CONTAINER">
         <interface-logo></interface-logo>
 
-        <!-- <nav class="nav">
-            <a
-                class="nav__link"
-                routerLink="/"
-                routerLinkActive="activated"
-                [routerLinkActiveOptions]="{exact: true}"
-            >
-                home
-            </a>
-            <a
-                class="nav__link"
-                routerLink="/recipes"
-                routerLinkActive="activated"
-                [routerLinkActiveOptions]="{exact: true}"
-            >
-                recipes
-            </a>
-            <a
-                class="nav__link"
-                routerLink="/add-recipe"
-                routerLinkActive="activated"
-                [routerLinkActiveOptions]="{exact: true}"
-            >
-                add recipe
-            </a>
-            <a
-                class="nav__link"
-                routerLink="/register"
-                routerLinkActive="activated"
-                [routerLinkActiveOptions]="{exact: true}"
-            >
-                register
-            </a>
-            <a
-                class="nav__link"
-                routerLink="/login"
-                routerLinkActive="activated"
-                [routerLinkActiveOptions]="{exact: true}"
-            >
-                login
-            </a>
-        </nav> -->
-
         <nav class="nav">
             <ng-container *ngFor="let route of routes">
                 <a
@@ -56,6 +13,32 @@
                     {{ route === '' ? 'home' : route.replaceAll('-', ' ')}}
                 </a>
             </ng-container>
+
+            <ng-container *ngFor="let authRoute of authRoutes">
+                <a
+                    class="nav__link"
+                    [routerLink]="authRoute"
+                    [routerLinkActive]="'activated'"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    *ngIf="
+                        (authRoute === authRoutes[0] && authService.ifLoggedIn) ||
+                        (authRoute === authRoutes[1] && !authService.ifLoggedIn) ||
+                        (authRoute === authRoutes[2] && !authService.ifLoggedIn)
+                    "
+                >
+                    {{ authRoute.replaceAll('-', ' ')}}
+                </a>
+            </ng-container>
+
+            <a
+                class="nav__link"
+                [routerLink]="''"
+                (click)="authService.logoutUser()"
+                *ngIf="authService.ifLoggedIn"
+            >
+                log out
+            </a>
+
         </nav>
     </div>
 </div>

@@ -1,3 +1,16 @@
 <section class="Login">
-    <h1>login</h1>
+    <div class="CONTAINER">
+        <interface-heading>login to your account</interface-heading>
+
+        <interface-spinner *ngIf="authService.ifLoadingBehaviorSubject | async"></interface-spinner>
+
+        <app-login-form></app-login-form>
+    </div>
 </section>
+
+<app-modal
+    message="you have been logged in successfully"
+    redirectPath="account"
+    *ngIf="modalService.ifModalVisible"
+>
+</app-modal>

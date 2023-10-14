@@ -1,3 +1,16 @@
 <section class="Register">
-    <h1>register</h1>
+    <div class="CONTAINER">
+        <interface-heading>register your account</interface-heading>
+
+        <interface-spinner *ngIf="authService.ifLoadingBehaviorSubject | async"></interface-spinner>
+
+        <app-register-form></app-register-form>
+    </div>
 </section>
+
+<app-modal
+    message="you have been registered successfully"
+    redirectPath="recipes"
+    *ngIf="modalService.ifModalVisible"
+>
+</app-modal>

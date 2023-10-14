@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { InterfaceModule } from "./modules/interface/interface.module";
 import { ControlsModule } from "./modules/controls/controls.module";
@@ -19,6 +20,9 @@ import { RecipeFormComponent } from "./content/recipe-form/recipe-form.component
 import { ModalComponent } from "./layout/modal/modal.component";
 import { LoginViewComponent } from "./views/login/login.component";
 import { RegisterViewComponent } from "./views/register/register.component";
+import { RegisterFormComponent } from "./content/register-form/register-form.component";
+import { LoginFormComponent } from "./content/login-form/login-form.component";
+import { AccountViewComponent } from "./views/account/account.component";
 
 @NgModule({
     declarations: [
@@ -35,6 +39,7 @@ import { RegisterViewComponent } from "./views/register/register.component";
         EditRecipeComponent,
         RegisterViewComponent,
         LoginViewComponent,
+        AccountViewComponent,
 
         // layout
         NavbarComponent,
@@ -43,13 +48,16 @@ import { RegisterViewComponent } from "./views/register/register.component";
 
         // content
         RecipeCardComponent,
-        RecipeFormComponent
+        RecipeFormComponent,
+        RegisterFormComponent,
+        LoginFormComponent,
     ],
 
     imports: [
         AppRoutingModule,
         BrowserModule,
         ReactiveFormsModule,
+        FormsModule,
 
         InterfaceModule,
         ControlsModule,

@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
     private title: string = 'home';
 
     constructor() {
-
+        // pass
     };
 
     ngOnInit(): void {
