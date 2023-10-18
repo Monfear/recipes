@@ -1,3 +1,16 @@
 .Account {
-    
+    & .info {
+        &__field {
+            width: 100%;
+            margin-bottom: 1rem;
+
+            &__term {
+                font-weight: bold;
+            }
+
+            &__value {
+                overflow-wrap: break-word;
+            }
+        }
+    }
 }

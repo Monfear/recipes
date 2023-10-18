@@ -17,6 +17,7 @@ const appRoutes: Route[] = [
     {
         path: '',
         component: HomeComponent,
+        pathMatch: 'full',
     },
     {
         path: 'recipes',
@@ -69,4 +70,4 @@ const appRoutes: Route[] = [
     exports: [RouterModule]
 })
 
-export class AppRoutingModule { };
+export class AppRoutingModule {};

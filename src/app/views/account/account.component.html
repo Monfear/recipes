@@ -1,3 +1,22 @@
 <section class="Account">
-    <h1>account</h1>
+    <div class="CONTAINER">
+        <interface-heading>Your account</interface-heading>
+
+        <main class="info">
+            <div class="info__field">
+                <p class="info__field__term">Email:</p>
+                <p class="info__field__value">{{ authService.userCredential.email }}</p>
+            </div>
+
+            <div class="info__field">
+                <p class="info__field__term">Id:</p>
+                <p class="info__field__value">{{ authService.userCredential.id }}</p>
+            </div>
+
+            <div class="info__field">
+                <p class="info__field__term">Token:</p>
+                <p class="info__field__value">{{ authService.userCredential.token }}</p>
+            </div>
+        </main>
+    </div>
 </section>
