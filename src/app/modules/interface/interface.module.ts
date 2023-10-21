@@ -7,6 +7,7 @@ import { ButtonComponent } from "./components/button/button.component";
 import { HeadingComponent } from "./components/heading/heading.component";
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 import { SubheadingComponent } from "./components/subheading/subheading.component";
+import { HamburgerComponent } from "./components/hamburger/hamburger.component";
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { SubheadingComponent } from "./components/subheading/subheading.componen
         HeadingComponent,
         SubheadingComponent,
         SpinnerComponent,
+        HamburgerComponent,
     ],
 
     exports: [
@@ -28,6 +30,7 @@ import { SubheadingComponent } from "./components/subheading/subheading.componen
         HeadingComponent,
         SubheadingComponent,
         SpinnerComponent,
+        HamburgerComponent,
     ],
 })
 

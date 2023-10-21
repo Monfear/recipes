@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { ModalService } from "src/app/services/modal.service";
+import { DomService } from "src/app/services/dom.service";
 
 @Component({
     selector: 'app-modal',
@@ -12,7 +12,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     @Input() message: string;
     @Input() redirectPath: string | null;
 
-    constructor(protected modalService: ModalService, private ref: ElementRef, private router: Router) {
+    constructor(protected domService: DomService, private ref: ElementRef, private router: Router) {
         // pass
     };
 

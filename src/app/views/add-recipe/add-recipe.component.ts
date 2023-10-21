@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { setViewTitle } from "src/app/functions/setViewTitle";
-import { ModalService } from "src/app/services/modal.service";
+import { DomService } from "src/app/services/dom.service";
 
 @Component({
     selector: 'app-add-recipe',
@@ -11,7 +11,7 @@ import { ModalService } from "src/app/services/modal.service";
 export class AddRecipeComponent {
     private title: string = 'add recipe';
 
-    constructor(protected modalService: ModalService) {
+    constructor(protected domService: DomService) {
         setViewTitle(this.title);
     };
 };

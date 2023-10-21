@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 import { IUserInfo } from "src/app/types/UserInfo.interface";
 
 import { AuthService } from "src/app/services/auth.service";
-import { ModalService } from "src/app/services/modal.service";
+import { DomService } from "src/app/services/dom.service";
 
 @Component({
     selector: 'app-login-form',
@@ -17,7 +17,7 @@ export class LoginFormComponent {
         password: '',
     };
 
-    constructor(protected authService: AuthService, protected modalService: ModalService) {
+    constructor(protected authService: AuthService, protected domService: DomService) {
         // pass
     };
 
@@ -27,7 +27,7 @@ export class LoginFormComponent {
         await this.authService.loginUser(this.userInfo);
 
         if (!this.authService.errorMessage) {
-            this.modalService.ifModalVisible = true;
+            this.domService.ifModalActive = true;
         };
     };
 };

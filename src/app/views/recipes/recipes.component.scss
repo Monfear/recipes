@@ -1,4 +1,7 @@
 .Recipes {
+    border: 2px solid red;
+    // height: 150vh;
+
     & .cards {
         display: grid;
         grid-template-columns: 1fr;

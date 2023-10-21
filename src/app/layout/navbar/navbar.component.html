@@ -2,7 +2,9 @@
     <div class="CONTAINER">
         <interface-logo></interface-logo>
 
-        <nav class="nav">
+        <interface-hamburger *ngIf="domService.ifMobileView"></interface-hamburger>
+
+        <nav class="nav" [ngClass]="{ 'hidden' : !domService.ifNavActive }">
             <ng-container *ngFor="let route of routes">
                 <a
                     class="nav__link"

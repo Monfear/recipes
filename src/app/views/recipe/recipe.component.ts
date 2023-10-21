@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data, Params, Router } from "@angular/router";
 import { setViewTitle } from "src/app/functions/setViewTitle";
+import { DomService } from "src/app/services/dom.service";
 import { FirebaseService } from "src/app/services/firebase.service";
-import { ModalService } from "src/app/services/modal.service";
 import { IRecipie } from "src/app/types/Recipe.interface";
 
 @Component({
@@ -19,7 +19,7 @@ export class RecipeComponent implements OnInit {
 
     constructor(
         protected firebaseService: FirebaseService,
-        protected modalService: ModalService,
+        protected domService: DomService,
         private route: ActivatedRoute,
         private router: Router,
     ) {
@@ -66,7 +66,7 @@ export class RecipeComponent implements OnInit {
             .then((value: void) => {
                 console.log(value);
 
-                this.modalService.openModal();
+                this.domService.openModal();
             })
             .catch((err) => {
                 if (err instanceof Error) {

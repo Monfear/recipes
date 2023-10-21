@@ -1,11 +1,18 @@
 @use 'src/variables.scss' as *;
 
 .Button {
-    width: 100px;
+    width: 120px;
     height: 50px;
-    background-color: white;
-    color: black;
-    border: 2px solid black;
+    background-color: $color-complementary-dark;
+    color: white;
+    border: none;
+    border-radius: 10px;
     font-size: $text-small;
     cursor: pointer;
+
+    transition: all 0.5s ease-out;
+
+    &:hover, &:active {
+        background-color: $color-complementary;
+    }
 }

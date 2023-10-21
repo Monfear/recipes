@@ -1,7 +1,18 @@
 // @use 'src/variables.scss' as *;
 
+
+$color-primary: hsl(23, 76%, 42%);
+$color-primary-xlight: hsl(34, 87%, 69%);
+$color-primary-light: hsl(23, 77%, 55%);
+$color-primary-dark: hsl(23, 84%, 22%);
+
+// $color-secondary: ;
+
+$color-complementary: hsl(347, 83%, 40%);
+$color-complementary-dark: hsl(347deg 100% 25.74%);
+
 $heading-xlarge: 4rem;
-$heading-large: 3.6rem;
+$heading-large: 3.4rem;
 $heading-big: 2.7rem;
 $heading-medium: 1.8rem;
 $heading-small: 1.5rem;
@@ -10,7 +21,8 @@ $text-xlarge: 1.4rem;
 $text-large: 1.2rem;
 $text-big: 1.1rem;
 $text-medium: 1rem;
-$text-small: 0.8rem;
+$text-small: 14px;
+$text-x-small: 12px;
 
 $mq-xlarge: 1800px;
 $mq-large: 1440px;

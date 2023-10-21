@@ -1,7 +1,15 @@
+@use 'src/variables.scss' as *;
+
 .Footer {
-    padding: 1rem;
+    height: 50px;
+    background-color: $color-primary;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     & .text {
-        text-align: center;
+        color: white;
     }
+
 }

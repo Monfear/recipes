@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { AuthService } from "src/app/services/auth.service";
+import { DomService } from "src/app/services/dom.service";
 
 @Component({
     selector: 'app-navbar',
@@ -7,11 +8,15 @@ import { AuthService } from "src/app/services/auth.service";
     styleUrls: ['./navbar.component.scss']
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements DoCheck {
     protected routes: string[] = ['', 'recipes', 'add-recipe'];
     protected authRoutes: string[] = ['account', 'register', 'login'];
 
-    constructor(protected authService: AuthService) {
-        console.log(this.authService.userCredential);
+    constructor(protected authService: AuthService, protected domService: DomService) {
+        // pass
+    };
+
+    ngDoCheck(): void {
+        // pass
     };
 };

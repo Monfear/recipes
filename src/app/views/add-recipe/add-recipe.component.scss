@@ -1,6 +1,7 @@
 @use 'src/variables.scss' as *;
 
 section.Add-recipe {
+
     & .form {
         display: flex;
         flex-direction: column;

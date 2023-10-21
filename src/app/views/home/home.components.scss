@@ -1,3 +1,77 @@
+@use 'src/variables.scss' as *;
+
 .Home {
-    
+    height: calc(100vh - 50px);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/common/food.jpg');
+    // background-image: url('/assets/images/common/food.jpg');
+    background-size: cover;
+    background-position: center;
+
+    // position: relative;
+
+    & .header {
+        text-align: center;
+
+        padding-top: 9rem;
+        color: white;
+
+        &__heading {
+            font-size: $heading-large;
+            margin-bottom: 0.5rem;
+        }
+
+        &__subheading {
+            font-size: $heading-medium - 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        &__caption {
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: $mq-small) {
+    .Home {
+        height: 110vh;
+
+        & .header {
+            padding-top: 6rem;
+        }
+    }
+}
+
+@media screen and (min-width: $mq-medium) {
+    .Home {
+        height: calc(100vh - 50px);
+
+        & .header {
+            padding-top: 15rem;
+
+            width: 80%;
+            margin: auto;
+
+            &__caption {
+                margin-top: 2rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $mq-large) {
+    .Home {
+        & .header {
+            padding-top: 12rem;
+            width: 60%;
+
+            &__heading {
+                font-size: $heading-xlarge;
+                // margin-bottom: 0.5rem;
+            }
+
+            &__caption {
+                margin-top: 1rem;
+            }
+        }
+    }
 }

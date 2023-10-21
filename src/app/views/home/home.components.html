@@ -1,3 +1,20 @@
 <section class="Home">
-    <h1>home</h1>
+    <div class="CONTAINER">
+        <header class="header">
+            <h1 class="header__heading">Explore recipes</h1>
+            <h2 class="header__subheading">Find and share everyday cooking inspiration</h2>
+            <p class="header__caption">
+                We’re supported by a group of recipe developers, food writers, recipe and product testers,
+                photographers, and other creative professionals.
+            </p>
+
+            <interface-button
+                [clickHandler]="moveToRecipes.bind(this)"
+                [additionalStyles]="{
+                    'display': 'inline-block'
+                }">
+                    Explore recipes
+            </interface-button>
+        </header>
+    </div>
 </section>

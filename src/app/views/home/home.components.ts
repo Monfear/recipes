@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { setViewTitle } from "src/app/functions/setViewTitle";
+import { DomService } from "src/app/services/dom.service";
 
 @Component({
     selector: 'app-home',
@@ -10,11 +11,15 @@ import { setViewTitle } from "src/app/functions/setViewTitle";
 export class HomeComponent implements OnInit {
     private title: string = 'home';
 
-    constructor() {
+    constructor(protected domService: DomService) {
         // pass
     };
 
     ngOnInit(): void {
         setViewTitle(this.title);
+    };
+
+    protected moveToRecipes() {
+        this.domService.navigate('recipes');
     };
 };

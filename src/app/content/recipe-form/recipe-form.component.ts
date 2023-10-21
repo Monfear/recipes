@@ -1,8 +1,8 @@
 import { Component, Input, SimpleChanges } from "@angular/core";
 import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { DomService } from "src/app/services/dom.service";
 import { FirebaseService } from "src/app/services/firebase.service";
-import { ModalService } from "src/app/services/modal.service";
 import { IRecipeControls } from "src/app/types/Recipe-controls.interface";
 import { IRecipeFormActions } from "src/app/types/Recipe-form-actions.interface";
 import { IRecipie } from "src/app/types/Recipe.interface";
@@ -60,7 +60,7 @@ export class RecipeFormComponent {
 
     constructor(
         private firebaseService: FirebaseService,
-        private modalService: ModalService,
+        private domService: DomService,
         private router: Router
     ) {
         // pass
@@ -125,7 +125,7 @@ export class RecipeFormComponent {
 
             await this.firebaseService.addSingleData(data);
 
-            this.modalService.openModal();
+            this.domService.openModal();
         } catch (error) {
             if (error instanceof Error) {
                 console.warn(`[!] ${error.message}`);
@@ -146,6 +146,6 @@ export class RecipeFormComponent {
 
         this.firebaseService.updateSingleData(this.id, newData);
 
-        this.modalService.openModal();
+        this.domService.openModal();
     };
 };
