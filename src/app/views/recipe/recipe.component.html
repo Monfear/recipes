@@ -2,42 +2,44 @@
     <div class="CONTAINER">
         <interface-heading>{{ recipe?.name }}</interface-heading>
 
-        <button type="button" (click)="removeRecipe()">delete recipe</button>
-        <button type="button" (click)="moveToEditRecipePage()">update recipe</button>
+        <div class="buttons">
+            <interface-button [clickHandler]="removeRecipe.bind(this)">Delete recipe</interface-button>
+            <interface-button [clickHandler]="moveToEditRecipePage.bind(this)">Edit recipe</interface-button>
+        </div>
 
         <main class="info">
-            <article class="info__term">
+            <article class="info__field">
                 <interface-subheading>is vege</interface-subheading>
-                <p class="info__description">{{ recipe?.ifVege }}</p>
+                <p class="info__field__text">{{ recipe?.ifVege }}</p>
             </article>
 
-            <article class="info__term">
+            <article class="info__field">
                 <interface-subheading>difficulty</interface-subheading>
-                <p class="info__text">{{ recipe?.difficulty }}</p>
+                <p class="info__field__text">{{ recipe?.difficulty }}</p>
             </article>
 
-            <article class="info__term">
+            <article class="info__field">
                 <interface-subheading>description</interface-subheading>
 
-                <p class="info__text">{{ recipe?.description }}</p>
+                <p class="info__field__text">{{ recipe?.description }}</p>
             </article>
 
-            <article class="info__term">
+            <article class="info__field">
                 <interface-subheading>ingredients</interface-subheading>
 
                 <ng-container *ngIf="recipe?.ingredients">
-                    <p class="info__text">No ingredients</p>
+                    <p class="info__field__text">No ingredients</p>
                 </ng-container>
 
                 <ng-container *ngFor="let item of recipe?.ingredients; let idx = index">
-                    <p class="info__text">{{ item }}</p>
+                    <p class="info__field__text">{{ item }}</p>
                 </ng-container>
             </article>
 
-            <article class="info__term">
+            <article class="info__field">
                 <interface-subheading>preparation</interface-subheading>
 
-                <p class="info__text">{{ recipe?.preparation }}</p>
+                <p class="info__field__text">{{ recipe?.preparation }}</p>
             </article>
         </main>
     </div>

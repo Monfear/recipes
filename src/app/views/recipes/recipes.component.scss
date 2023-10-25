@@ -1,14 +1,51 @@
+@use 'src/variables.scss' as *;
+
 .Recipes {
     border: 2px solid red;
-    // height: 150vh;
+    min-height: calc(100vh - 50px);
+    padding-top: 6rem;
+    padding-bottom: 1rem;
 
     & .cards {
         display: grid;
         grid-template-columns: 1fr;
         justify-items: center;
+        row-gap: 1rem;
     }
 
     & .info {
-        
+
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: $mq-small) {
+    .Recipes {
+        & .cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media screen and (min-width: $mq-medium) {
+    .Recipes {
+        & .cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media screen and (min-width: $mq-big) {
+    .Recipes {
+        & .cards {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media screen and (min-width: $mq-large) {
+    .Recipes {
+        & .cards {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 }

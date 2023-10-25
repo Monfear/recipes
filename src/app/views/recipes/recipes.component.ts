@@ -16,7 +16,6 @@ export class RecipesComponent implements OnInit {
     public recipes: [string, IRecipie][] = [];
 
     constructor(public firebaseService: FirebaseService) {
-        // this.firebaseService.ifLoadingBehaviorSubject.next(true);
         this.listenUpdateData();
     };
 

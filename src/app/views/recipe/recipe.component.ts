@@ -55,7 +55,9 @@ export class RecipeComponent implements OnInit {
         });
     };
 
-    protected removeRecipe(): void {
+    protected removeRecipe(e: MouseEvent): void {
+        console.log(e);
+
         if (!this.id) {
             console.warn('[!] invalid id');
 
@@ -75,7 +77,9 @@ export class RecipeComponent implements OnInit {
             });
     };
 
-    protected moveToEditRecipePage(): void {
+    protected moveToEditRecipePage(e: MouseEvent): void {
+        console.log(e);
         this.router.navigateByUrl(`/recipes/${this.id}/edit-recipe`);
+
     };
 };

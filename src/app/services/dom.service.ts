@@ -25,12 +25,10 @@ export class DomService {
             this.ifMobileView = false;
             this.ifNavActive = true;
         };
-
-        // console.log(window.innerWidth);
     };
 
     public navigate(path: string): void {
-        this.router.navigateByUrl(path)
+        this.router.navigateByUrl(path);
     };
 
     public openModal(): void {

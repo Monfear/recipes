@@ -3,7 +3,7 @@
 .Button {
     width: 120px;
     height: 50px;
-    background-color: $color-complementary-dark;
+    background-color: $color-complementary;
     color: white;
     border: none;
     border-radius: 10px;
@@ -13,6 +13,6 @@
     transition: all 0.5s ease-out;
 
     &:hover, &:active {
-        background-color: $color-complementary;
+        background-color: $color-complementary-dark;
     }
 }
