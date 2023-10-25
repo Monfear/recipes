@@ -15,4 +15,9 @@
     &:hover, &:active {
         background-color: $color-complementary-dark;
     }
+
+    &.centered {
+        display: block;
+        margin: 0 auto;
+    };
 }

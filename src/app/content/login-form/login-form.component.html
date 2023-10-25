@@ -1,35 +1,36 @@
 <form class="Login-form" (submit)="submitForm($event)">
-    <div class="control">
-        <label class="control__label" for="email">email</label>
+    <main class="controls">
+        <div class="controls__control">
+            <label class="controls__control__label" for="email">Email</label>
 
-        <input
-            class="control__input"
-            id="email"
-            name="email"
-            type="text"
-            [(ngModel)]="userInfo.email"
-            #email="ngModel"
-        >
+            <input
+                class="controls__control__input"
+                id="email"
+                name="email"
+                type="text"
+                [(ngModel)]="userInfo.email"
+                #email="ngModel"
+            >
 
-        <p class="control__error" *ngIf="email.touched && !email.value">email is required</p>
-    </div>
+            <p class="controls__control__error" *ngIf="email.touched && !email.value">email is required</p>
+        </div>
 
-    <div class="control">
-        <label class="control__label" for="password">password</label>
+        <div class="controls__control">
+            <label class="controls__control__label" for="password">Password</label>
 
-        <input
-            class="control__input"
-            id="password"
-            name="password"
-            type="text"
-            [(ngModel)]="userInfo.password"
-            #password="ngModel"
-        >
+            <input
+                class="controls__control__input"
+                id="password"
+                name="password"
+                type="text"
+                [(ngModel)]="userInfo.password"
+                #password="ngModel"
+            >
 
-        <p class="control__error" *ngIf="password.touched && !password.value">password is required</p>
-    </div>
+            <p class="controls__control__error" *ngIf="password.touched && !password.value">password is required</p>
+        </div>
+    </main>
+        <interface-button [additionalClass]="'centered'">Log in</interface-button>
 
-    <p class="error">{{ authService.errorMessage }}</p>
-
-    <button type="submit">log in</button>
+        <p class="error">{{ authService.errorMessage }}</p>
 </form>

@@ -1,3 +1,7 @@
-<button class="Button" [ngClass]="{additionalClass}" [ngStyle]="additionalStyles" (click)="clickHandler($event)">
+<button class="Button"
+    [ngClass]="additionalClass"
+    [ngStyle]="additionalStyles"
+    (click)="clickHandler ? clickHandler($event) : null"
+>
     <ng-content></ng-content>
 </button>

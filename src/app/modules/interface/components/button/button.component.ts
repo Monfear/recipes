@@ -10,9 +10,10 @@ export class ButtonComponent {
     @Input() additionalClass: string;
     @Input() additionalStyles: Object;
 
-    @Input() clickHandler: Function;
+    @Input() clickHandler: Function | undefined;
 
     constructor() {
         // pass
+        console.log(this.clickHandler)
     };
 };
