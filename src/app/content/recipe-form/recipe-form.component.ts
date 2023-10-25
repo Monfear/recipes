@@ -1,6 +1,5 @@
 import { Component, Input, SimpleChanges } from "@angular/core";
 import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
 import { DomService } from "src/app/services/dom.service";
 import { FirebaseService } from "src/app/services/firebase.service";
 import { IRecipeControls } from "src/app/types/Recipe-controls.interface";
@@ -61,7 +60,6 @@ export class RecipeFormComponent {
     constructor(
         private firebaseService: FirebaseService,
         private domService: DomService,
-        private router: Router
     ) {
         // pass
     };
@@ -78,9 +76,6 @@ export class RecipeFormComponent {
 
     ngOnInit() {
         this.formGroupEntries = Object.entries(this.formGroup.controls);
-
-        // console.log(this.formGroup.controls);
-        // console.log(this.formGroupEntries);
     };
 
 
@@ -114,6 +109,7 @@ export class RecipeFormComponent {
     };
 
     protected async addRecipeSubmit(): Promise<void> {
+
         if (!this.formGroup.valid) {
             this.errMsg = 'Please fill in all fields correctly.';
 

@@ -36,8 +36,10 @@
             >
             </controls-input>
 
-            <button type="button" (click)="removeIngredientsControl(idx)">delete</button>
+            <button class="button button--delete" type="button" (click)="removeIngredientsControl(idx)">delete</button>
     </ng-container>
+
+    <button class="button button--ingredient" type="button" (click)="addIngredientsControl()">add ingredient</button>
 
     <controls-select
         [alias]="'difficulty'"
@@ -53,9 +55,9 @@
     >
     </controls-checkbox>
 
-    <button type="button" (click)="addIngredientsControl()">add ingredient</button>
+    <p class="error" *ngIf="!this.formGroup.valid">Please fill all fields correctly.</p>
 
-    <button type="submit">submit form</button>
+    <button class="button button--submit" type="submit">Submit form</button>
 
     <div class="info">
         <article class="info__field">
